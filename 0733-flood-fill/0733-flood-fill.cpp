@@ -43,7 +43,7 @@ public:
         int m=image[0].size();
          vector<vector<int> > vis(n,vector<int>(m,0));
          int initial=image[sr][sc];
-        dfs1(image,sr,sc,newColor,initial,vis);
+        dfs(image,sr,sc,newColor,initial,vis);
         return image;
     }
 };
