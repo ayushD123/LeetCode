@@ -9,12 +9,12 @@ private:
         if(row<0 || col<0 || row>=n || col>=m) return false;;
         if(vis[row][col]) return false;
         if(board[row][col]!=word[cnt]) return false;
-        
+        cnt+=1;
         vis[row][col]=1;
-        bool ans=(dfs(row+1,col,board,word,vis,cnt+1) || 
-        dfs(row-1,col,board,word,vis,cnt+1) || 
-        dfs(row,col+1,board,word,vis,cnt+1) || 
-        dfs(row,col-1,board,word,vis,cnt+1));
+        bool ans=(dfs(row+1,col,board,word,vis,cnt) || 
+        dfs(row-1,col,board,word,vis,cnt) || 
+        dfs(row,col+1,board,word,vis,cnt) || 
+        dfs(row,col-1,board,word,vis,cnt));
         vis[row][col]=0;
         
         
