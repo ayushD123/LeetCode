@@ -6,6 +6,29 @@ using namespace std;
 class Solution {
     
     private:
+     bool bfs(int src,int vis[],vector<int> adj[]){
+        queue<pair<int,int>> q;
+        q.push({src,-1});
+        vis[src]=1;
+        while(!q.empty()){
+            pair<int,int> p=q.front();
+            q.pop();
+            int node=p.first;
+            int par=p.second;
+            for(auto it:adj[node]){
+                if(vis[it]==0 ){
+                    vis[it]=1;
+                    q.push({it,node});
+                }else{
+                   if(par!=it){
+                       return true;
+                   }
+                   }
+                }
+            }
+        
+        return false;
+    }
     bool dfs(int src,int vis[],vector<int> adj[],int par){
         vis[src]=1;
         for(auto node:adj[src]){
