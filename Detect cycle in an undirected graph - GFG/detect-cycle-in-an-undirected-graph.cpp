@@ -6,27 +6,17 @@ using namespace std;
 class Solution {
     
     private:
-    bool bfs(int src,int vis[],vector<int> adj[]){
-        queue<pair<int,int>> q;
-        q.push({src,-1});
+    bool dfs(int src,int vis[],vector<int> adj[],int par){
         vis[src]=1;
-        while(!q.empty()){
-            pair<int,int> p=q.front();
-            q.pop();
-            int node=p.first;
-            int par=p.second;
-            for(auto it:adj[node]){
-                if(vis[it]==0 ){
-                    vis[it]=1;
-                    q.push({it,node});
-                }else{
-                   if(par!=it){
-                       return true;
-                   }
-                   }
-                }
-            }
-        
+        for(auto node:adj[src]){
+           if(vis[node]==0){
+               if(dfs(node,vis,adj,src)){
+                   return true;
+               }
+           }else if(node!=par){
+               return true;
+           }
+        }
         return false;
     }
   public:
@@ -38,7 +28,7 @@ class Solution {
         int vis[V]={0};
         for(int i=0;i<V;++i){
             if(vis[i]==0){
-               if(bfs(i,vis,adj)){
+               if(dfs(i,vis,adj,i)){
                    return true;
                }
             }
