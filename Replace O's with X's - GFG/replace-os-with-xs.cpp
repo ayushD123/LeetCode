@@ -41,13 +41,11 @@ public:
             }
         }
       //  vector<vector<char>> ans;
-        vector<vector<char>> ans(n,vector<char> (m,'X'));
+        vector<vector<char>> ans(n,vector<char> (m,'O'));
          for(int i=0;i<n;++i){
             for(int j=0;j<m;++j){
                 if(pos[i][j]){
                     ans[i][j]='X';
-                }else{
-                    ans[i][j]='O';
                 }
         }
          }
