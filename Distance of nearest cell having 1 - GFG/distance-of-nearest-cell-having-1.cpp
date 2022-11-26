@@ -1,4 +1,5 @@
 //{ Driver Code Starts
+//SAME AS ROTTEN ORANGES JUST CHANGED FEW LINES
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -31,7 +32,7 @@ class Solution
             int row=t[0];
             int col=t[1];
             ans=t[2];
-            anss[row][col]=ans;
+            anss[row][col]=ans;//reflecting rotting time into a matrix for this question
            int del_row[]={-1,0,1,0};
             int del_col[]={0,1,0,-1};
             for(int i=0;i<4;++i){
@@ -39,7 +40,7 @@ class Solution
                 int ncol=col+del_col[i];
                 if(nrow>=n || nrow<0 || ncol>=m || ncol<0) continue;
               //  if(vis[nrow][ncol]) continue;
-                if(grid[nrow][ncol]==0){
+                if(grid[nrow][ncol]==0){//changed to 0 from 1
                     vector<int> v;
                     v.push_back(nrow);
                     v.push_back(ncol);
