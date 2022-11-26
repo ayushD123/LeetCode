@@ -1,9 +1,11 @@
+//same as replace 0's with X just change 0-->1 nd X-->0 nd put cnt
+
 //{ Driver Code Starts
 // Initial Template for C++
 
 #include <bits/stdc++.h>
 using namespace std;
-
+ 
 
 // } Driver Code Ends
 // User function Template for C++
