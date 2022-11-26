@@ -10,18 +10,18 @@ using namespace std;
 class Solution{
     
 private:
-    void dfs(int row,int col,vector<vector<char>> &mat,vector<vector<int>> &pos){
+    void dfs(int row,int col,vector<vector<char>> &mat,vector<vector<int>> &surr){
         int n=mat.size();
         int m=mat[0].size();
         if(row>=n || col>=m || row<0 || col<0) return;
-        if(pos[row][col]==0) return;
+        if(surr[row][col]==0) return;
         if(mat[row][col]=='X') return;
         
-        pos[row][col]=0;
-        dfs(row+1,col,mat,pos);
-        dfs(row,col+1,mat,pos);
-        dfs(row-1,col,mat,pos);
-        dfs(row,col-1,mat,pos);
+        surr[row][col]=0;
+        dfs(row+1,col,mat,surr);
+        dfs(row,col+1,mat,surr);
+        dfs(row-1,col,mat,surr);
+        dfs(row,col-1,mat,surr);
         
         
     }
@@ -29,22 +29,22 @@ public:
     vector<vector<char>> fill(int n, int m, vector<vector<char>> mat)
     {
         // code here
-        vector<vector<int>> pos(n,vector<int> (m,1));
+        vector<vector<int>> surr(n,vector<int> (m,1));
         for(int i=0;i<n;++i){
             for(int j=0;j<m;++j){
                 if(i==0 || i==(n-1) || j==0 || j==(m-1)){
-                    if(mat[i][j]=='O' && pos[i][j]==1){
+                    if(mat[i][j]=='O' && surr[i][j]==1){
                         //pos[i][j]=0;
-                        dfs(i,j,mat,pos);
+                        dfs(i,j,mat,surr);
                     }
                 }
             }
         }
       //  vector<vector<char>> ans;
-        vector<vector<char>> ans(n,vector<char> (m,'O'));
+      //  vector<vector<char>> ans(n,vector<char> (m,'O'));
          for(int i=0;i<n;++i){
             for(int j=0;j<m;++j){
-                if(pos[i][j]){
+                if(surr[i][j]){
                     mat[i][j]='X';
                 }
         }
