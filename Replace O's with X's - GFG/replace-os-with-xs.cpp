@@ -45,11 +45,11 @@ public:
          for(int i=0;i<n;++i){
             for(int j=0;j<m;++j){
                 if(pos[i][j]){
-                    ans[i][j]='X';
+                    mat[i][j]='X';
                 }
         }
          }
-        return ans;
+        return mat;
     }
 };
 
