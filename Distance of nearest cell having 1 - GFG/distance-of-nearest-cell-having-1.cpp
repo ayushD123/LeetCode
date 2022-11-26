@@ -11,7 +11,7 @@ class Solution
 	{
 	  int n=grid.size();
         int m=grid[0].size();
-        vector<vector<int>> vis(n,vector<int> (m,0));
+       // vector<vector<int>> vis(n,vector<int> (m,0));
         vector<vector<int>> anss(n,vector<int> (m,0));
         queue<vector<int>> q;
         for(int i=0;i<n;++i){
@@ -19,7 +19,7 @@ class Solution
                 if(grid[i][j]==1){
                     vector<int> v={i,j,0};
                     q.push(v);
-                    vis[i][j]=1;
+                  //  vis[i][j]=1;
                                     }
             }
         }
@@ -38,15 +38,15 @@ class Solution
                 int nrow=row+del_row[i];
                 int ncol=col+del_col[i];
                 if(nrow>=n || nrow<0 || ncol>=m || ncol<0) continue;
-                if(vis[nrow][ncol]) continue;
+              //  if(vis[nrow][ncol]) continue;
                 if(grid[nrow][ncol]==0){
                     vector<int> v;
                     v.push_back(nrow);
                     v.push_back(ncol);
                     v.push_back(t[2]+1);
                     q.push(v);
-                    vis[nrow][ncol]=1;
-                   // grid[nrow][ncol]=2;
+                   // vis[nrow][ncol]=1;
+                   grid[nrow][ncol]=2;
                 }
             }
         }
