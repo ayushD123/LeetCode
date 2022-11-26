@@ -46,7 +46,7 @@ class Solution
                     v.push_back(t[2]+1);
                     q.push(v);
                     vis[nrow][ncol]=1;
-                    grid[nrow][ncol]=2;
+                   // grid[nrow][ncol]=2;
                 }
             }
         }
