@@ -1,4 +1,4 @@
-# Number Of Enclaves
+# Number Of Enclaves 
 ## Medium
 <div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">You are given an <strong>n&nbsp;x m</strong>&nbsp;binary matrix <strong>grid</strong>, where <strong>0</strong> represents a sea cell and <strong>1</strong> represents a land cell.</span></p>
 
