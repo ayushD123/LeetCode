@@ -1,6 +1,6 @@
 /*
 Bipartite-those graphs who can be colored with 2 colors suh that no two adjacent nodes have same color
-also bipartite graph have only even cycle
+also bipartite graph have only even cycle or no cycle(thats why pure concept of cycle detection doesnt work need to modify a little bit)
 */
 
 //{ Driver Code Starts
