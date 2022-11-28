@@ -10,6 +10,21 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
     private:
+	
+ bool dfs(int src,int color[],vector<int> adj[],int col){
+        color[src]=col;
+        for(auto node:adj[src]){
+           if(color[node]==-1){
+              // color[node]=!color[src];
+               if(!dfs(node,color,adj,!col)){
+                   return false;
+               }
+           }else if(color[node]==color[src]){
+               return false;
+           }
+        }
+        return true;
+    }
     
     bool bfs(int node,int color[],int V,vector<int>adj[]){
         color[node]=0;
