@@ -1,3 +1,8 @@
+/*
+Bipartite-those graphs who can be colored with 2 colors suh that no two adjacent nodes have same color
+also bipartite graph have only even cycle
+*/
+
 //{ Driver Code Starts
 #include<bits/stdc++.h>
 using namespace std;
@@ -14,10 +19,14 @@ class Solution {
             int par=q.front();
             q.pop();
             for(auto it:adj[par]){
+		    // if the adjacent node is yet not colored
+	            // you will give the opposite color of the node 
                 if(color[it]==-1){
                     color[it]=!color[par];
                     q.push(it);
                 }else{
+			// is the adjacent guy having the same color 
+	            // someone did color it on some other path 
                     if(color[it]==color[par]){
                         return false;
                     }
