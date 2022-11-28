@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> findWinners(vector<vector<int>>& matches) {
-        unordered_map<int,int> win;
+    //    unordered_map<int,int> win;
         unordered_map<int,int> lost;
         vector<int> list;
         set<int> st;
@@ -22,9 +22,9 @@ public:
         vector<int> l1;
         vector<int> l2;
         
-         for(auto it:list){
-            cout<<it<<" ";
-        }
+        //  for(auto it:list){
+        //     cout<<it<<" ";
+        // }
         
         
         for(int i=0;i<list.size();++i){
