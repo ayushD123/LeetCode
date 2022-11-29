@@ -17,12 +17,12 @@ class Solution {
         for(auto node:adj[src]){
             if(!vis[node]){
                if (dfs(node,adj,vis,path,check)){
-                   check[src]=0;
+                  // check[src]=0;
                  return true;
              }
             }else{
                 if(path[node]==1){
-                    check[src]=0;
+                   // check[src]=0;
                     return true;
                 }
             }
