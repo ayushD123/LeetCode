@@ -22,7 +22,7 @@ class Solution {
                 }
             }
         }
-        return true;
+        return true;//should check all the condition(nodes) to arrive at conclusion that graph is bipartitie
     }
 public:
     bool isBipartite(vector<vector<int>>& graph) {
