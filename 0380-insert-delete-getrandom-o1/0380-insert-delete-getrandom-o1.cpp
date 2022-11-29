@@ -8,7 +8,7 @@ public:
     /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
     bool insert(int val) {
         if (m.find(val) != m.end()) return false;
-        nums.emplace_back(val);
+        nums.push_back(val);
         m[val] = nums.size() - 1;
         return true;
     }
