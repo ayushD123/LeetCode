@@ -12,7 +12,7 @@ class Solution {
   bool checkdfs(int node,vector<int> adj[],int vis[],int pathvis[],vector<int> &temp){
       vis[node] = 1;
       pathvis[node] = 1;
-      temp.push_back(node);
+     // temp.push_back(node);
       for(auto neigh : adj[node]){
           if(!vis[neigh]){
               if(checkdfs(neigh,adj,vis,pathvis,temp)){
