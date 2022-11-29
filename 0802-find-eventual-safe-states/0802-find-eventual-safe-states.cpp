@@ -1,12 +1,12 @@
 class Solution {
     private:
-     bool checkdfs(int node,vector<vector<int>>& adj,int vis[],int pathvis[],vector<int> &temp){
+     bool checkdfs(int node,vector<vector<int>>& adj,int vis[],int pathvis[]){
       vis[node] = 1;
       pathvis[node] = 1;
-      temp.push_back(node);
+      
       for(auto neigh : adj[node]){
           if(!vis[neigh]){
-              if(checkdfs(neigh,adj,vis,pathvis,temp)){
+              if(checkdfs(neigh,adj,vis,pathvis)){
                  //we are not back tracking the path array
                   return true;
               }
@@ -48,9 +48,9 @@ public:
         int path[100005]={0};
         vector<int> ans;
         for(int i=0;i<n;i++){
-            vector<int> temp;
             
-                if(checkdfs(i,graph,vis,path,temp)){
+            
+                if(checkdfs(i,graph,vis,path)){
                     continue;
                 }
                 else{
