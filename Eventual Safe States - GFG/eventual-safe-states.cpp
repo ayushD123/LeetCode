@@ -9,13 +9,13 @@ using namespace std;
 // User function Template for C++
 class Solution {
   public:
-  bool checkdfs(int node,vector<int> adj[],int vis[],int pathvis[],vector<int> &temp){
+  bool checkdfs(int node,vector<int> adj[],int vis[],int pathvis[]){
       vis[node] = 1;
       pathvis[node] = 1;
      // temp.push_back(node);
       for(auto neigh : adj[node]){
           if(!vis[neigh]){
-              if(checkdfs(neigh,adj,vis,pathvis,temp)){
+              if(checkdfs(neigh,adj,vis,pathvis)){
                  //we are not back tracking the path array
                   return true;
               }
@@ -35,12 +35,12 @@ class Solution {
         // code here
         int vis[V] ={0};
         int pathvis[V] = {0};
-        set<int >s;
+        
         vector<int> ans;
         for(int i=0;i<V;i++){
-            vector<int> temp;
             
-                if(checkdfs(i,adj,vis,pathvis,temp)){
+            
+                if(checkdfs(i,adj,vis,pathvis)){
                     continue;
                 }
                 else{
