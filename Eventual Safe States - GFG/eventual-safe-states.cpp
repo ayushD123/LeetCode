@@ -13,7 +13,7 @@ class Solution {
     bool dfs(int src,vector<int> adj[],int vis[],int path[],int check[]){
         vis[src]=1;
         path[src]=1;
-        check[src]=0;
+       // check[src]=0;
         for(auto node:adj[src]){
             if(!vis[node]){
                if (dfs(node,adj,vis,path,check)){
