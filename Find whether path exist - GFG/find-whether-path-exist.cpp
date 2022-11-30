@@ -11,7 +11,7 @@ class Solution
     private:
     
     bool dfs(int i,int j,int vis[],vector<vector<int>>& grid){
-        if(grid[i][j]==2) return true;
+       // if(grid[i][j]==2) return true;
         int n=grid.size();
         grid[i][j]=99;
         int delrow[]={-1,1,0,0};
