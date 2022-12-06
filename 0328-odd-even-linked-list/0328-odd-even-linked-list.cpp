@@ -21,7 +21,7 @@ public:
                     head=head->next;
                 }else{
                     event->next=head;
-                    event=event->next;
+                    event=head;
                     head=head->next;
                 }
             }else{
@@ -30,7 +30,7 @@ public:
                     head=head->next;
                 }else{
                     oddt->next=head;
-                    oddt=oddt->next;
+                    oddt=head;
                     head=head->next;
                 }
             }
