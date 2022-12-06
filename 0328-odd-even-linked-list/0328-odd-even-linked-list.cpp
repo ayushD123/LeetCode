@@ -18,22 +18,23 @@ public:
                 if(evenh==NULL){
                     evenh=head;
                     event=head;
-                    head=head->next;
+                   // head=head->next;
                 }else{
                     event->next=head;
                     event=head;
-                    head=head->next;
+                    
                 }
             }else{
                 if(oddh==NULL){
                     oddh=oddt=head;
-                    head=head->next;
+                   // head=head->next;
                 }else{
                     oddt->next=head;
                     oddt=head;
-                    head=head->next;
+                   // head=head->next;
                 }
             }
+            head=head->next;
             count++;
         }
         
