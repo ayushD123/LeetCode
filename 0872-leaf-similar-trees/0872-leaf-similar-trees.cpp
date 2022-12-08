@@ -18,8 +18,9 @@ public:
         if(root->left==NULL && root->right==NULL){
             v.push_back(root->val);
         }
-        dfs(root->left,v);
         dfs(root->right,v);
+        dfs(root->left,v);
+        
     }
     bool leafSimilar(TreeNode* root1, TreeNode* root2) {
         vector<int> v1,v2;
