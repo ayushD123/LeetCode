@@ -11,9 +11,13 @@
  */
 class Solution {
 public:
-    void dfs(TreeNode* root,int max,int min,vector<int> &v){
+    void dfs(TreeNode* root,int max,int min,int &ans){
         if(root==NULL){
-            v.push_back(abs(max-min));
+            int temp=(abs(max-min));
+            if(ans<temp){
+                ans=temp;
+            }
+          //  v.push_back(abs(max-min));
             return;
         }
         int valu=root->val;
@@ -23,12 +27,14 @@ public:
         if(valu<min){
             min=valu;
         }
-        dfs(root->left,max,min,v);
-         dfs(root->right,max,min,v);
+        dfs(root->left,max,min,ans);
+         dfs(root->right,max,min,ans);
     }
     int maxAncestorDiff(TreeNode* root) {
-        vector<int> v;
-        dfs(root,0,99999,v);
-        return *max_element(v.begin(),v.end());
+        //vector<int> v;
+        int ans=0;
+        dfs(root,0,99999,ans);
+        return ans;
+        //return *max_element(v.begin(),v.end());
     }
 };
