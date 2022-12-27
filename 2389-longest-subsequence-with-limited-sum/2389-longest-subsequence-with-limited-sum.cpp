@@ -2,17 +2,24 @@ class Solution {
 public:
     vector<int> answerQueries(vector<int>& nums, vector<int>& queries) {
         // Get the prefix sum array of the sorted 'nums'.
-        sort(nums.begin(), nums.end());
-        for (int i = 1; i < nums.size(); ++i)
-            nums[i] += nums[i - 1];
-        
-        // For each query, find its insertion index to the prefix sum array.
-        vector<int> answer;
-        for (auto query : queries) {
-            int index = upper_bound(nums.begin(), nums.end(), query) - nums.begin();
-            answer.push_back(index);
+       sort(nums.begin(),nums.end());
+        int sum=0;
+        int cnt=0;
+        vector<int> ans;
+        int i=0;
+        for(auto it:queries){
+            sum=0;
+            i=0;
+            cnt=0;
+            while(sum<=it && i<nums.size()){
+                sum+=nums[i];
+                if(sum<=it){
+                  cnt++; 
+                    i++;
+                }
+            }
+            ans.push_back(cnt);
         }
-        
-        return answer;
+        return ans;
     }
 };
