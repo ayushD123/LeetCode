@@ -20,16 +20,19 @@ public:
         }
 
         sort(rem.begin(),rem.end());
-        for(auto it:rem){
-            cout<<it<<" ";
-        }
-        cout<<endl;
+        // for(auto it:rem){
+        //     cout<<it<<" ";
+        // }
+      //  cout<<endl;
         int sum=0;
         int i=0;
         while(sum<=additionalRocks && i<n){
             sum+=rem[i];
-            rem[i]=0;
-            i++;
+            if(sum<=additionalRocks){
+               rem[i]=0;
+            i++; 
+            }
+            
         }
        //  int i=0;
        // int k= additionalRocks;
@@ -41,17 +44,17 @@ public:
        //      }
        //      i++;
        //  }
-        for(auto it:rem){
-            cout<<it<<" ";
-        }
-        cout<<endl;
+        // for(auto it:rem){
+        //     cout<<it<<" ";
+        // }
+        // cout<<endl;
        // sort(rem.begin(),rem.end());
         for(auto it:rem){
             if(it<=0){
                 cnt++;
             }
         }
-        return cnt-1;
+        return cnt;
         
     }
 };
