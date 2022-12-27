@@ -1,17 +1,17 @@
 class Solution {
 public:
    int maximumBags(vector<int>& capacity, vector<int>& rocks, int additionalRocks) {
-        long long totalcap=0;
-        for(auto it:capacity){
-            totalcap+=it;
-        }
-        long long totalrocks=0;
-         for(auto it:rocks){
-            totalrocks+=it;
-        }
-        if(totalrocks+additionalRocks>=totalcap){
-            return rocks.size();
-        }
+        // long long totalcap=0;
+        // for(auto it:capacity){
+        //     totalcap+=it;
+        // }
+        // long long totalrocks=0;
+        //  for(auto it:rocks){
+        //     totalrocks+=it;
+        // }
+        // if(totalrocks+additionalRocks>=totalcap){
+        //     return rocks.size();
+        // }
         int cnt=0;
         int n=rocks.size();
         vector<int> rem;
