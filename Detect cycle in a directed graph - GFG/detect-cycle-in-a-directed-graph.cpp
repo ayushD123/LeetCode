@@ -42,7 +42,11 @@ class Solution {
     */
     //USING BFS(TOPOLOGICAL SORT->KAHN)
     public:
-    // Function to detect cycle in a directed graph.
+    /*
+    Intiuation: since topological osrt only works for directed acyclic(without cycle) graph ,
+    so when we try to apply iy we wont get ans of same length
+    so if ans is not correct then there must exixst a graph because algo didnt worked properly
+    */
     bool isCyclic(int V, vector<int> adj[]) {
         vector<int> ans;
 	   vector<int> inDeg(V,0);
@@ -51,9 +55,7 @@ class Solution {
 	          inDeg[it]++;
 	      }
 	  }
-// 	  for(int i=0;i<V;++i){
-// 	      cout<<i<<"->"<<inDeg[i]<<endl;
-// 	  }
+
 	  
 	   
 	   queue<int> q;
@@ -69,9 +71,7 @@ class Solution {
 	     int node=q.front();
 	     q.pop();
 	     for(auto it:adj[node]){
-	      //   cout<<node<<"->"<<it<<endl;
-	     //    if(inDeg[it]>0){
-	            
+	    
 	             inDeg[it]--;
 	             if(inDeg[it]==0){
 	                 ans.push_back(it);
