@@ -5,6 +5,8 @@ using namespace std;
 // } Driver Code Ends
 class Solution
 {
+    //USING DFS
+    /*
 	public:
 	void dfs(int node,vector<int> adj[],int vis[],stack<int> &st){
 	    vis[node]=1;
@@ -32,6 +34,52 @@ class Solution
 	    }
 	    return ans;
 	}
+	*/
+	//USING BFS(KAHN's Algo)
+	public:
+	vector<int> topoSort(int V, vector<int> adj[]) 
+	{
+	    vector<int> ans;
+	   vector<int> inDeg(V,0);
+	  for(int i=0;i<V;++i){
+	      for(auto it:adj[i]){
+	          inDeg[it]++;
+	      }
+	  }
+// 	  for(int i=0;i<V;++i){
+// 	      cout<<i<<"->"<<inDeg[i]<<endl;
+// 	  }
+	  
+	   int vis[V]={0};
+	   queue<int> q;
+	 for(int i=0;i<V;++i){
+	     if(inDeg[i]==0){
+	         q.push(i);
+	         vis[i]=1;
+	         ans.push_back(i);
+	     }
+	 }
+	 
+	 while(!q.empty()){
+	     int node=q.front();
+	     q.pop();
+	     for(auto it:adj[node]){
+	      //   cout<<node<<"->"<<it<<endl;
+	         if(inDeg[it]>0){
+	             vis[it]=1;
+	             inDeg[it]--;
+	             if(inDeg[it]==0){
+	                 ans.push_back(it);
+	                 q.push(it);
+	             }
+	         }
+	     }
+	     
+	     
+	 }
+	 return ans;
+	}
+	
 };
 
 //{ Driver Code Starts.
