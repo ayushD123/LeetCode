@@ -2,7 +2,8 @@ class Solution {
 public:
     bool canFinish(int N, vector<vector<int>>& pre) {
         int V=N;
-	      vector<int> ans;
+	  //    vector<int> ans;
+        int ans=0;
 	      vector<int> adj[N];
 	      for(auto it:pre){
 	          adj[it[0]].push_back(it[1]);
@@ -20,8 +21,8 @@ public:
 	 for(int i=0;i<V;++i){
 	     if(inDeg[i]==0){
 	         q.push(i);
-	      ;
-	         ans.push_back(i);
+	      
+	         ans++;
 	     }
 	 }
 	 
@@ -32,7 +33,7 @@ public:
 	    
 	             inDeg[it]--;
 	             if(inDeg[it]==0){
-	                 ans.push_back(it);
+	                 ans++;
 	                 q.push(it);
 	           //  }
 	         }
@@ -40,7 +41,7 @@ public:
 	     
 	     
 	 }
-	 if(ans.size()!=V){
+	 if(ans!=V){
 	     return 0;
 	 }
 	 return 1;
