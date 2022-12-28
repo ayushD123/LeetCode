@@ -1,23 +1,25 @@
 class Solution {
 public:
     int minStoneSum(vector<int>& piles, int k) {
-        vector freq(10001,0);
-        int sum = 0;
-        int count = 0;
-        int size = -1;
-        for (int pile : piles) {
+      map<int,int,greater<int>> freq;
+        int sum=0;
+        int count=0;
+        for(int pile:piles){
             freq[pile]++;
-            sum += pile;
-            size = max(size, pile);
+            sum+=pile;
         }
-        for (int j = 0; j < k && size; j++) {
-            freq[size - size / 2]++;
-            freq[size]--;
-            count += size / 2;
-            while (!freq[size] && size > 0) {
-                size--;
+        for(int i=0;i<k;++i){
+            int maxele=freq.begin()->first;
+            freq[maxele]--;
+            if(freq[maxele]==0){
+                freq.erase(freq.begin());
             }
+            freq[maxele-(maxele/2)]++;
         }
-        return sum - count;
+        int ans=0;
+        for(auto it:freq){
+            ans+=it.first*it.second;
+        }
+        return ans;
     }
 };
