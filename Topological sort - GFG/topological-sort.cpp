@@ -50,12 +50,12 @@ class Solution
 // 	      cout<<i<<"->"<<inDeg[i]<<endl;
 // 	  }
 	  
-	   int vis[V]={0};
+	   
 	   queue<int> q;
 	 for(int i=0;i<V;++i){
 	     if(inDeg[i]==0){
 	         q.push(i);
-	         vis[i]=1;
+	      ;
 	         ans.push_back(i);
 	     }
 	 }
@@ -66,7 +66,7 @@ class Solution
 	     for(auto it:adj[node]){
 	      //   cout<<node<<"->"<<it<<endl;
 	         if(inDeg[it]>0){
-	             vis[it]=1;
+	            
 	             inDeg[it]--;
 	             if(inDeg[it]==0){
 	                 ans.push_back(it);
