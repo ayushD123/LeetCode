@@ -65,13 +65,13 @@ class Solution
 	     q.pop();
 	     for(auto it:adj[node]){
 	      //   cout<<node<<"->"<<it<<endl;
-	         if(inDeg[it]>0){
+	     //    if(inDeg[it]>0){
 	            
 	             inDeg[it]--;
 	             if(inDeg[it]==0){
 	                 ans.push_back(it);
 	                 q.push(it);
-	             }
+	           //  }
 	         }
 	     }
 	     
