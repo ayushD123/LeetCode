@@ -8,18 +8,21 @@ public:
             freq[pile]++;
             sum+=pile;
         }
+        
         for(int i=0;i<k;++i){
             int maxele=freq.begin()->first;
+            count+=maxele/2;
             freq[maxele]--;
             if(freq[maxele]==0){
                 freq.erase(freq.begin());
             }
             freq[maxele-(maxele/2)]++;
         }
-        int ans=0;
-        for(auto it:freq){
-            ans+=it.first*it.second;
-        }
-        return ans;
+        // int ans=0;
+        // for(auto it:freq){
+        //     ans+=it.first*it.second;
+        // }
+        // return ans;
+        return sum-count;
     }
 };
