@@ -3,7 +3,7 @@ public:
     vector<int> asteroidCollision(vector<int>& asteroids) {
         stack<int> st;
         for(auto it:asteroids){
-             stack<int> temp=st;
+           //  stack<int> temp=st;
             if(it>0 || st.empty()){
                 st.push(it);
             }else {
@@ -23,12 +23,14 @@ public:
             }
             
         }
-        vector<int> ans;
-        while(!st.empty()){
-            ans.push_back(st.top());
+        vector<int> ans(st.size());
+        for(int i=st.size()-1;i>=0;i--){
+            ans[i]=st.top();
             st.pop();
+            
         }
-        reverse(ans.begin(),ans.end());
+        
+       // reverse(ans.begin(),ans.end());
         return ans;
     }
 };
