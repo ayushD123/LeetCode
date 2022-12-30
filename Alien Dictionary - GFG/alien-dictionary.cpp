@@ -15,14 +15,13 @@ class Solution{
         for(int i=0;i<N-1;++i){
             string a=dict[i];
             string b=dict[i+1];
-            int kk=0;
-            while( kk<(min(a.length(),b.length())) && a[kk]==b[kk]){
-                kk++;
-            }
-            if(a[kk-1]==b[kk-1] && (kk==a.length() || kk==b.length())) continue;
-            if(a[kk]!=b[kk] && kk<k)
-           // cout<<kk<<" "<<a[kk]-97<<" "<<b[kk]-97<<endl;
-           adj[a[kk]-97].push_back(b[kk]-97);
+           int n=min(a.length(),b.length());
+           for(int i=0;i<n;++i){
+               if(a[i]!=b[i]){
+                   adj[a[i]-'a'].push_back(b[i]-'a');
+                   break;
+               }
+           }
         }
         // for(int i=0;i<k;++i){
         //     for(auto it:adj[i]){
