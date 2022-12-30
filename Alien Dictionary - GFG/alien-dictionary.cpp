@@ -11,7 +11,7 @@ class Solution{
     public:
     string findOrder(string dict[], int N, int k) {
         //code here
-        vector<int> adj[26];
+        vector<int> adj[k];
         for(int i=0;i<N-1;++i){
             string a=dict[i];
             string b=dict[i+1];
@@ -31,7 +31,7 @@ class Solution{
         //     cout<<endl;
         // }
         queue<int> q;
-        int indeg[9999]={0};
+        int indeg[k]={0};
         for(int i=0;i<k;++i){
             for(auto it:adj[i]){
               //  cout<<it<<" ";
