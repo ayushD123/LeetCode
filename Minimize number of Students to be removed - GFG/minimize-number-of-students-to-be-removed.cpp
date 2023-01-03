@@ -12,11 +12,11 @@ class Solution {
         // code here
         vector<int> arr;
         for(int i=0;i<N;++i){
-            int it=lower_bound(arr.begin(),arr.end(),H[i])-arr.begin();
-            if(it==arr.size()){
+            auto it=lower_bound(arr.begin(),arr.end(),H[i]);
+            if(it==arr.end()){
                 arr.push_back(H[i]);
             }else{
-                arr[it]=H[i];
+                arr[it-arr.begin()]=H[i];
             }
         }
         return N-arr.size();
