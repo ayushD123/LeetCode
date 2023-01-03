@@ -7,9 +7,9 @@ public:
             for(int j=0;j<str.size();++j){
                 s.push_back(str[j][i]);
             }
-            if(s.length()<2){
-                continue;
-            }
+            // if(s.length()<2){
+            //     continue;
+            // }
             string t=s;
            sort(t.begin(),t.end());
             if(t!=s){
