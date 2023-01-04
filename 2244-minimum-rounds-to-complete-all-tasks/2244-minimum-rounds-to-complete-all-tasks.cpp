@@ -15,19 +15,8 @@ public:
             if(x%3==0){
                 ans+=x/3;
                 
-            }else if(x%3==2){
-                ans=ans+1+(x/3);
-            }else{
-                if(x<=4){
-                    ans+=x/2;
-                }else{
-                    if(x<=4){
-                        ans+=x/2;
-                    }else{
-                        ans=ans+((x-4)/3)+2;
-                    }
-                    
-                }
+            }else {
+                ans+=x/3+1;
             }
         }
         return ans;
