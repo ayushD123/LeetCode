@@ -21,13 +21,13 @@ class Solution
     pq.push(src);
     while(!pq.empty()){
         int node=pq.top();
-       int edgew=dis[node];
+       
         pq.pop();
         for(auto it:adj[node]){
             int adjV=it[0];
             int weight=it[1];
-            if(edgew+weight<dis[adjV]){
-                dis[adjV]=edgew+weight;
+            if(dis[node]+weight<dis[adjV]){
+                dis[adjV]=dis[node]+weight;
                 pq.push(adjV);
             }
         }
