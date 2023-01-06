@@ -8,44 +8,32 @@ class Solution
 	public:
 	//Function to find the shortest distance of all the vertices
     //from the source vertex S.
-    vector <int> dijkstra(int n, vector<vector<int>> adj[], int src)
+    vector <int> dijkstra(int V, vector<vector<int>> adj[], int src)
     {
         // Code here
-        vector<int> dis(n,0);
-        
-       // int vis[n]={0};
-      // int dis[n]={0};
-        for(int i=0;i<n;++i){
-            dis[i]=1e7+11;
-        }
-        dis[src]=0;
-       // vector<int> adj[n];
-        // for(int i=0;i<m;++i){
-        //     adj[edges[i][0]].push_back(edges[i][1]);
-        //      adj[edges[i][1]].push_back(edges[i][0]);
-        // }
-        queue<int> q;
-        q.push(src);
-        while(!q.empty()){
-           // pair<int,int> p=q.front();
-            int node=q.front();
-            q.pop();
-           // int dis=p.second;
-            for(auto it:adj[node]){
-                
-                if(dis[it[0]]>dis[node]+it[1]){
-                    dis[it[0]]=dis[node]+it[1];
-                    q.push(it[0]);
-                
+         priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
+    //int dis[n]={0};
+    vector<int> dis(V,1e7);
+    // for(int i=0;i<n;++i){
+    //     dis[i]=1e9+10;
+    // }
+    dis[src]=0;
+    pq.push({0,src});
+    while(!pq.empty()){
+        int node=pq.top().second;
+        int edgew=pq.top().first;
+        pq.pop();
+        for(auto it:adj[node]){
+            int adjV=it[0];
+            int weight=it[1];
+            if(edgew+weight<dis[adjV]){
+                dis[adjV]=edgew+weight;
+                pq.push({dis[adjV],adjV});
             }
         }
-        }
-        for(int i=0;i<n;++i){
-            if(dis[i]==1e7+11){
-                dis[i]=-1;
-            }
-        }
-        return dis;
+    }
+    return dis;
+    
     }
 };
 
