@@ -88,7 +88,8 @@ class Solution {
             }
             
         }
-       return -1;
+        if(vis[destination.first][destination.second]==(1e7+10)) return -1;
+       return vis[destination.first][destination.second];
     }
 };
 
