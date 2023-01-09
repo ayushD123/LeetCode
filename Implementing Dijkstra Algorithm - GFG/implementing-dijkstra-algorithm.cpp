@@ -3,40 +3,65 @@
 using namespace std;
 
 // } Driver Code Ends
+
 class Solution
 {
 	public:
 	//Function to find the shortest distance of all the vertices
     //from the source vertex S.
+    //Using PQ
+    
+    // vector <int> dijkstra(int V, vector<vector<int>> adj[], int src)
+    // {
+    //     // Code here
+    //      priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
+    // //int dis[n]={0};
+    // vector<int> dis(V,1e7);
+    // // for(int i=0;i<n;++i){
+    // //     dis[i]=1e9+10;
+    // // }
+    // dis[src]=0;
+    // pq.push({0,src});
+    // while(!pq.empty()){
+    //     int node=pq.top().second;
+    //     int edgew=pq.top().first;
+    //     pq.pop();
+    //     for(auto it:adj[node]){
+    //         int adjV=it[0];
+    //         int weight=it[1];
+    //         if(edgew+weight<dis[adjV]){
+    //             dis[adjV]=edgew+weight;
+    //             pq.push({dis[adjV],adjV});
+    //         }
+    //     }
+    // }
+    // return dis;
+    
+    //USING SET
     vector <int> dijkstra(int V, vector<vector<int>> adj[], int src)
     {
-        // Code here
-         priority_queue<int,vector<int>,greater<int>> pq;
-    //int dis[n]={0};
-    vector<int> dis(V,1e7);
-    // for(int i=0;i<n;++i){
-    //     dis[i]=1e9+10;
-    // }
-    dis[src]=0;
-    pq.push(src);
-    while(!pq.empty()){
-        int node=pq.top();
+        set<pair<int,int>> st;
+        vector<int> dis(V,1e7+10);
+        dis[src]=0;
        
-        pq.pop();
-        for(auto it:adj[node]){
-            int adjV=it[0];
-            int weight=it[1];
-            if(dis[node]+weight<dis[adjV]){
-                dis[adjV]=dis[node]+weight;
-                pq.push(adjV);
+        st.insert({0,src});
+        while(st.size()!=0){
+            auto first=*(st.begin());//first element of set is always smallest st.begin returns iterator
+            int node=first.second;
+            int weight=first.first;
+             st.erase(first);
+            for(auto it:adj[node]){
+                int adjN=it[0];
+                int adjW=it[1];
+                if(dis[adjN]>(adjW+weight)){
+                    dis[adjN]=adjW+weight;
+                    st.insert({dis[adjN],adjN});
+                }
             }
         }
-    }
-    return dis;
-    
+        return dis;
     }
 };
-
 
 //{ Driver Code Starts.
 
