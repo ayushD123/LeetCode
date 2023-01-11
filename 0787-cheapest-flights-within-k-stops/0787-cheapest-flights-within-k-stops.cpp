@@ -16,11 +16,11 @@ public:
            int node=it.second.first;
            int cost=it.second.second;
            int stops=it.first;
-           if(stops>=(k+1)) continue;
+             if(stops>=(k+1)) continue;
            for(auto it:adj[node]){
                int weight=it.second;
                int Nnode=it.first;
-               
+             cout<<node<<" "<<cost<<" "<<dist[node]<<endl;
                if(dist[Nnode]>(weight+cost)){
                    dist[Nnode]=weight+cost;
                    st.insert({stops+1,{Nnode,dist[Nnode]}});
