@@ -11,7 +11,7 @@ class Solution {
   public:
     long long int minIncrements(vector<int> arr, int N) {
         // Code here
-        sort(arr.begin(),arr.end());
+        //sort(arr.begin(),arr.end());
         map<int,int> freq;
         for(auto it:arr){
             freq[it]++;
