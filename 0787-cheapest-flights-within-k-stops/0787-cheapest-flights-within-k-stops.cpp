@@ -21,7 +21,7 @@ public:
                int weight=it.second;
                int Nnode=it.first;
                
-               if(dist[Nnode]>(weight+dist[node])){
+               if(dist[Nnode]>(weight+cost)){
                    dist[Nnode]=weight+cost;
                    st.insert({stops+1,{Nnode,dist[Nnode]}});
                }
