@@ -33,7 +33,7 @@ class Solution {
             for(auto it:adj[node]){
                 int newNode=it.first;
                 int weight=it.second;
-                if(dist[newNode]>(weight+dist[node])){
+                if(dist[newNode]>(weight+cost)){
                      dist[newNode]=weight+cost;
                     st.push({stops+1,{newNode,dist[newNode]}});
                 }
