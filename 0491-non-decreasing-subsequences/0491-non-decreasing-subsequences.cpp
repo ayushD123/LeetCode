@@ -22,24 +22,17 @@ public:
     }
     
     vector<vector<int>> findSubsequences(vector<int>& nums) {
-       vector<vector<int>> ans;
+       
         set<vector<int>> st;
-        vector<int> arr;
-        arr.push_back(nums[0]);
-        int max=nums[0];
-        for(int i=1;i<nums.size();++i){
-            if(nums[i]>=max){
-                max=nums[i];
-                arr.push_back(max);
-            }
-        }
+       
         int n=nums.size();
         vector<int> temp;
         subseq(0,st,nums,n,temp);
-        for(auto it:st){
-            ans.push_back(it);
-        }
-      //  ans(st.begin(),st.end());
+        vector<vector<int>> ans(st.begin(),st.end());
+      //   for(auto it:st){
+      //       ans.push_back(it);
+      //   }
+      // /
         return ans;
     }
 };
