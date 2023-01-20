@@ -12,19 +12,15 @@ public:
             ans.insert(a);
             return;
         }
-        
+        subseq(ind+1,ans,nums,n,temp);
         if(temp.size()==0){
             temp.push_back(nums[ind]);
-            subseq(ind+1,ans,nums,n,temp);
-               temp.pop_back();
         }else if(nums[ind]>=temp.back()){
-            temp.push_back(nums[ind]);
-            subseq(ind+1,ans,nums,n,temp);
-               temp.pop_back(); 
+           temp.push_back(nums[ind]); 
         }
         
          subseq(ind+1,ans,nums,n,temp);
-     
+        temp.pop_back();
     }
     
     vector<vector<int>> findSubsequences(vector<int>& nums) {
