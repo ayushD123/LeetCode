@@ -1,13 +1,14 @@
 class Solution {
 public:
-    pair<int,int> getCords(int curr,int n){
-       int r = n - (curr - 1) / n  -1;
-        int c = (curr - 1) % n;
-        if (r % 2 == n % 2) {
-            return {r, n - 1 - c};
-        } else {
-            return {r, c};
+    pair<int,int> getCords(int val,int n){
+        int x=(val-1)/n;
+        int y=(val-1)%n;
+        int row=n-1-x;
+        int col=y;
+        if(x%2!=0){
+            col=n-y-1;
         }
+        return {row,col};
     }
     int snakesAndLadders(vector<vector<int>>& board) {
         int n=board.size();
