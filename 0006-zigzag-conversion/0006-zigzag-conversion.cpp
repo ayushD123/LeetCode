@@ -1,49 +1,41 @@
 class Solution {
 public:
     string convert(string s, int numRows) {
-        if (numRows == 1) {
+        int n=int(s.size());
+        if(numRows==1 || s.length()<=1){
             return s;
         }
-        
-        int n = int(s.size());
-        int sections = ceil(n / (2 * numRows - 2.0));
-        int numCols = sections * (numRows - 1);
-        
-        vector<vector<char>> matrix(numRows, vector<char>(numCols, ' '));
-        
-        int currRow = 0, currCol = 0;
-        int currStringIndex = 0;
-        
-        // Iterate in zig-zag pattern on matrix and fill it with string characters.
-        while (currStringIndex < n) {
-            // Move down.
-            while (currRow < numRows && currStringIndex < n) {
-                matrix[currRow][currCol] = s[currStringIndex];
+        int sec=ceil(n/(2*numRows-2.0));
+        int cols=sec*(numRows-1);
+        vector<vector<char>> mat(numRows,vector<char>(cols,' '));
+        int currRow=0;
+        int currCol=0;
+        int currInd=0;
+        while(currInd<n){
+            while(currRow<numRows && currInd<n){
+                mat[currRow][currCol]=s[currInd];
                 currRow++;
-                currStringIndex++;
+                currInd++;
             }
+            currRow-=2;
+            currCol+=1;
             
-            currRow -= 2;
-            currCol++;
-            
-            // Move up (with moving right also).
-            while (currRow > 0 && currCol < numCols && currStringIndex < n) {
-                matrix[currRow][currCol] = s[currStringIndex];
+            while(currCol<cols && currRow>0 && currInd<n){
+                mat[currRow][currCol]=s[currInd];
                 currRow--;
                 currCol++;
-                currStringIndex++;
+                currInd++;
             }
+            
         }
-        
-        string answer;
-        for (auto& row: matrix) {
-            for (auto& character: row) {
-                if (character != ' ') {
-                    answer += character;
+        string ans="";
+        for(auto& row:mat){
+            for(auto& ch:row){
+                if(ch!=' '){
+                    ans+=ch;
                 }
             }
         }
-        
-        return answer;
+        return ans;
     }
 };
