@@ -12,35 +12,43 @@ public:
         //     return ans;
         // }
         int k=p.size();
-        map<char,int> mp1;
+        vector<int> mp1(26,0);
+     //   map<char,int> mp1;
         for(auto it:p){
-            mp1[it]++;
+            mp1[it-'a']++;
         }
         string a=s.substr(0,k);
-        map<char,int> mp2;
+       // map<char,int> mp2;
+        vector<int> mp2(26,0);
         for(auto it:a){
-            mp2[it]++;
+            mp2[it-'a']++;
         }
        //   for(auto it:mp1){
        //     //     cout<<it.first<<" "<<it.second<<endl;
        //      }
        // // cout<<"mp2"<<endl;
-        
-        for(int i=0;i<s.size()-k+1;++i){
+        if(mp1==mp2){
+            ans.push_back(0);
+        }
+        int j=k;
+        for(int i=0;i<s.size()-k+1 && j<s.size();++i,j++){
             // cout<<i<<endl;
             // for(auto it:mp2){
             //    cout<<it.first<<" "<<it.second<<endl;
             // }
-            if(mp1==mp2){
-                ans.push_back(i);
-            }
+           
             char a=s[i];
-            char b=s[k+i];
-            mp2[a]--;
-            if(mp2[a]==0){
-                mp2.erase(a);
+            char b=s[j];
+          mp2[a-'a']--;
+          //  cout<<b<<" "<<b-'a';
+            // if(mp2[a]==0){
+            //     mp2.erase(a);
+            // }
+         //   cout<<i<<" "<<j<<endl;
+           mp2[b-'a']++;
+             if(mp1==mp2){
+                ans.push_back(i+1);
             }
-            mp2[b]++;
             
         }
         return ans;
