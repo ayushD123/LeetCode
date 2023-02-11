@@ -8,11 +8,11 @@ public:
         while(lp<rp){
             if(height[lp]<height[rp]){
                 lp++;
-                ans=max(ans,(min(height[lp],height[rp])*(rp-lp)));
             }else{
                 rp--;
+                }
                 ans=max(ans,(min(height[lp],height[rp])*(rp-lp)));
-            }
+
         }
         return ans;
     }
