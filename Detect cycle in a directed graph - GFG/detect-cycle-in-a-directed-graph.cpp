@@ -18,10 +18,10 @@ class Solution {
                     return true;
                 }
             }
-            path[node]=0;
+            
         }
-         path[src]=0;
-         return false;
+        path[src]=0;
+         return  false;
     }
   public:
     // Function to detect cycle in a directed graph.
