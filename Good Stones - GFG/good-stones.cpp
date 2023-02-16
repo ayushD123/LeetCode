@@ -12,21 +12,21 @@ class Solution{
         if(index>=n || index<0){
             return 1;
         }
-        if(vis[index]==2) return 2;
-        if(path[index]) return 2;
+        if(vis[index]==2) return 2; //next to a node wich is part of a cycle
+        if(path[index]) return 2; //same path 
         
         vis[index]=1;
         path[index]=1;
         int newind=index+arr[index];
-        int temp= dfs(newind,vis,path,n,arr);
-        if(temp==2) vis[index]=2;
+        if(dfs(newind,vis,path,n,arr)==2)
+            vis[index]=2;
         path[index]=0;
         return vis[index];
     }
 public:
     int goodStones(int n,vector<int> &arr){
         // Code here
-        vector<int> vis(n,0);
+        vector<int> vis(n,0);//3 values[0--not visted yet,1-->visited but not part of cycle,2-->part of cycle(obvoiusly visited)]
         vector<int> path(n,0);
         
         for(int i=0;i<n;++i){
