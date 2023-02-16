@@ -13,15 +13,16 @@ class Solution {
         vis[src]=1;
         path[src]=1;
         for(auto node:adj[src]){
+	 if(path[node]==1){
+                    return true;
+                
+            }
             if(!vis[node]){
                if(dfs(node,adj,vis,path)){
                  return true;
              }
-            }else{
-                if(path[node]==1){
-                    return true;
-                }
             }
+               
            
         }
         path[src]=0;
