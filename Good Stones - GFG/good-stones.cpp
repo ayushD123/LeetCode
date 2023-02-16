@@ -12,8 +12,9 @@ class Solution{
         if(index>=n || index<0){
             return 1;
         }
-        if(path[index]) return 2;
         if(vis[index]==2) return 2;
+        if(path[index]) return 2;
+        
         vis[index]=1;
         path[index]=1;
         int newind=index+arr[index];
