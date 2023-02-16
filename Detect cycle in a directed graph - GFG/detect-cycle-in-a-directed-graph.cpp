@@ -4,7 +4,11 @@ using namespace std;
 
 // } Driver Code Ends
 class Solution {
-     private:
+  public:
+    // Function to detect cycle in a directed graph.
+    //using DFS
+    /*
+    private:
     bool dfs(int src,vector<int> adj[],int vis[],int path[]){
         vis[src]=1;
         path[src]=1;
@@ -18,15 +22,14 @@ class Solution {
                     return true;
                 }
             }
-            
+           
         }
         path[src]=0;
-         return  false;
+       return false;
     }
   public:
     // Function to detect cycle in a directed graph.
     bool isCyclic(int V, vector<int> adj[]) {
-        // code here
         int vis[V]={0};
         int path[V]={0};
         for(int i=0;i<V;++i){
@@ -38,6 +41,55 @@ class Solution {
         }
         return false;
     }
+    */
+    //USING BFS(TOPOLOGICAL SORT->KAHN)
+    public:
+    /*
+    Intiuation: since topological osrt only works for directed acyclic(without cycle) graph ,
+    so when we try to apply iy we wont get ans of same length
+    so if ans is not correct then there must exixst a graph because algo didnt worked properly
+    */
+    bool isCyclic(int V, vector<int> adj[]) {
+        vector<int> ans;
+	   vector<int> inDeg(V,0);
+	  for(int i=0;i<V;++i){
+	      for(auto it:adj[i]){
+	          inDeg[it]++;
+	      }
+	  }
+
+	  
+	   
+	   queue<int> q;
+	 for(int i=0;i<V;++i){
+	     if(inDeg[i]==0){
+	         q.push(i);
+	      ;
+	         ans.push_back(i);
+	     }
+	 }
+	 
+	 while(!q.empty()){
+	     int node=q.front();
+	     q.pop();
+	     for(auto it:adj[node]){
+	    
+	             inDeg[it]--;
+	             if(inDeg[it]==0){
+	                 ans.push_back(it);
+	                 q.push(it);
+	           //  }
+	         }
+	     }
+	     
+	     
+	 }
+	 if(ans.size()!=V){
+	     return 1;
+	 }
+	 return 0;
+    }
+    
 };
 
 //{ Driver Code Starts.
