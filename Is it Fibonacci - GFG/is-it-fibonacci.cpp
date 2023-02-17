@@ -25,6 +25,9 @@ class Solution {
             j++;
             
             sum=sum+g[j]-g[i];
+            if(j==N-1){
+                return g[j];
+            }
           //  cout<<sum<<" ";
             i++;
         }
