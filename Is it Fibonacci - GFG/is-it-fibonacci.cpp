@@ -12,11 +12,12 @@ class Solution {
   public:
     long long solve(int N, int k, vector<long long> g) {
         // code here
-        int i=0;
-        int j=k-1;
+        int j=g.size()-1;
+        int i=j-k+1;
+        
         long long sum=0;
-        for(int x=i;x<=j;++x){
-            sum+=g[x];
+        for(auto it:g){
+            sum+=it;
         }
        // cout<<sum<<endl;
         int n=N;
@@ -31,15 +32,9 @@ class Solution {
           //  cout<<sum<<" ";
             i++;
         }
+        return g[N-1];
        
-        long long ans=88;
-        for(int x=0;x<g.size();++x){
-            if(x==(N-1)){
-                ans=g[x];
-                break;
-            }
-        }
-        return ans;
+        
     }
 };
 
