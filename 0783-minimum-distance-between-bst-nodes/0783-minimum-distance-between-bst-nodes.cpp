@@ -15,8 +15,9 @@ class Solution {
         if(root==NULL){
             return;
         }
-        v.push_back(root->val);
+        
         dfs(v,root->left);
+        v.push_back(root->val);
         dfs(v,root->right);
     }
 public:
@@ -24,15 +25,9 @@ public:
         vector<int> v;
         dfs(v,root);
         int ans=1e5;
-        for(auto it:v){
-            cout<<it<<" ";
-        }
-        for(int i=0;i<v.size();++i){
-            for(int j=i+1;j<v.size();++j){
-            if(i!=j){
-                ans=min(ans,abs(v[i]-v[j]));
-            }
-        }
+        
+        for(int i=0;i<v.size()-1;++i){
+          ans=min(ans,abs(v[i]-v[i+1]));
         }
         
         return ans;
