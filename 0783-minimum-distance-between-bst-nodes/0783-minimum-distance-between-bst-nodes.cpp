@@ -25,7 +25,7 @@ public:
         dfs(v,root);
         int ans=1e5;
         for(int i=0;i<v.size();++i){
-            for(int j=0;j<v.size();++j){
+            for(int j=i;j<v.size();++j){
             if(i!=j){
                 ans=min(ans,abs(v[i]-v[j]));
             }
