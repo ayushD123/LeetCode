@@ -7,8 +7,8 @@ class Solution {
   public:
     int CheapestFLight(int n, vector<vector<int>>& flights, int src, int dst, int K)  {
         // Code here
-        queue<pair<int,pair<int,int>>> st;//{stops,{node,dist}}
-        st.push({0,{src,0}});
+        set<pair<int,pair<int,int>>> st;//{stops,{node,dist}}
+        st.insert({0,{src,0}});
         vector<pair<int,int>> adj[n];
         for(int i=0;i<flights.size();++i){
             adj[flights[i][0]].push_back({flights[i][1],flights[i][2]});
@@ -24,18 +24,18 @@ class Solution {
         vector<int> dist(n,1e7+10);
         dist[src]=0;
         while(!st.empty()){
-            auto it=(st.front());
+            auto it=*(st.begin());
             int stops=it.first;
             int node=it.second.first;
             int cost=it.second.second;
-            st.pop();
+            st.erase(it);
            if(stops>=(K+1)) continue;
             for(auto it:adj[node]){
                 int newNode=it.first;
                 int weight=it.second;
                 if(dist[newNode]>(weight+cost)){
                      dist[newNode]=weight+cost;
-                    st.push({stops+1,{newNode,dist[newNode]}});
+                    st.insert({stops+1,{newNode,dist[newNode]}});
                 }
                
             }
