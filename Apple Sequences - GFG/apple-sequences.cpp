@@ -12,7 +12,7 @@ public:
     int appleSequences(int n, int k, string s){
         // code here 
          int i=0,j=1;
-        int ans=1;
+        int ans=0;
         if(s.length()<3){
             return s.length();
         }
@@ -25,7 +25,7 @@ public:
             int t=(j-i+1);
            // cout<<j<<" "<<t<<" "<<*max_element(mp.begin(),mp.end())<<endl;
             if(k==0){
-                if((t==(*max_element(mp.begin(),mp.end())))){
+                if((t==(mp[0]))){
                ans=max(ans,t);
                j++;
                 if((j)<s.length())
