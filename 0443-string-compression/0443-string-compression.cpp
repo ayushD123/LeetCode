@@ -33,7 +33,7 @@ public:
                     chars.insert(chars.begin()+i+1+k,s[k]);
                 }
             }
-           cout<<cnt<<" ";
+          // cout<<cnt<<" ";
            // cout<<s<<endl;
             if(cnt>1)
           j=i+s.length()+1;
