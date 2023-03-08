@@ -12,6 +12,7 @@ public:
         }
         while(low<=high){
             int mid=low+(high-low)/2;
+            if(mid==0) break;
             int sum=0;
             int k=0;
             int rem=0;
