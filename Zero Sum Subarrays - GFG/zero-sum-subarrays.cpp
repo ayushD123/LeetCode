@@ -11,29 +11,25 @@ using namespace std;
 class Solution{
 public:
     //Function to count subarrays with sum equal to 0.
-    long long int findSubarray(vector<long long int> &nums, int n ) {
-        //code here
-         unordered_map<int,int> map;
-      //  int n=nums.size();
-        int curr=0;
-        long long cnt=0;
-        for(int i=0;i<nums.size();++i){
-            curr+=nums[i];
-            
-            if(curr==0){
-                cnt++;
+    long long int findSubarray(vector<long long int> &A, int n ) {
+        //code 
+        long long sum=0;
+        unordered_map<long long,long long> mp;
+        int ans=0;
+        for(int i=0;i<n;++i){
+            sum+=A[i];
+            if(sum==0){
+                ans++;
+                
             }
-            if(map.find(curr-0)!=map.end()){
-                cnt+=map[curr-0];
+            if(mp.find(sum)!=mp.end()){
+                
+               ans+=mp[sum];
             }
-           // cout<<cnt<<" ";
-            map[curr]++;
+            mp[sum]+=1;
         }
-     //   cout<<map.size();
-        // if(map.size()==1 && n>1){
-        //     return n*(n+1)/2;
-        // }
-        return cnt;
+       
+        return ans;
     }
 };
 
