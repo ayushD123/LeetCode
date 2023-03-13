@@ -20,6 +20,7 @@ class Solution{
             sum+=A[i];
             if(sum==0){
                 ans=max(ans,i+1);
+                continue;
             }
             if(mp.find(sum)!=mp.end()){
                 
