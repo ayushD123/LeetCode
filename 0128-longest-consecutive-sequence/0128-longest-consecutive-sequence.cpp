@@ -9,6 +9,7 @@ public:
         int ans=0;
     for(auto it:nums){
         if(mp[it-1]) continue;
+        if(vis[it]) continue;
         int x=it;
         int cnt=0;
         while(vis[x]==0 && mp[x]){
