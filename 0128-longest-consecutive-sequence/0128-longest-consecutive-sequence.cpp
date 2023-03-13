@@ -2,7 +2,7 @@ class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
     unordered_map<int,bool> mp;
-  
+    unordered_map<int,bool> vis;
     for(auto it:nums){
         mp[it]=1;
     }
@@ -11,7 +11,8 @@ public:
         if(mp[it-1]) continue;
         int x=it;
         int cnt=0;
-        while(mp[x]){
+        while(vis[x]==0 && mp[x]){
+            vis[x]=1;
             cnt++;
             x++;
         }
