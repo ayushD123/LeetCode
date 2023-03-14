@@ -1,32 +1,28 @@
 class Solution {
 public:
     bool checkSubarraySum(vector<int>& nums, int k) {
-          unordered_map<int,int> map;
-        int n=nums.size();
-        if(n<2) return false;
-        int curr=0;
-        int cnt=0;
-        map[0]=-1;
+        int pre=0;
+        unordered_map<int,int> mp;
         for(int i=0;i<nums.size();++i){
-            curr+=nums[i];
-            curr=curr%k;
-            
-            // if(curr==k){
-            //     cnt++;
-            // }
-            if(map.find(curr)!=map.end()){
-                if(i-map[curr]>1)
+            pre+=nums[i];
+            if(pre%k==0 && i>=1){
                 return true;
-            }else{
-                map[curr]=i; 
             }
-           
+            
+            int mod=pre%k;
+           // cout<<pre<<" "<<mod<<endl;
+            if(mp.find(mod)!=mp.end()){
+                int j=mp[mod];
+                
+                if(i-j>=2){
+                  //  cout<<i<<" "<<j;
+                    return true;
+                }
+            }else{
+                mp[mod]=i;
+            }
         }
-        // cout<<map.size();
-        // if(map.size()==1 && n>1){
-        //     return n*(n+1)/2;
-        // }
+        
         return false;
-    
     }
 };
