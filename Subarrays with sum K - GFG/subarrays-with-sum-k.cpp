@@ -17,6 +17,8 @@ class Solution{
             pre+=Arr[i];
             if(pre==K){
                 ans++;
+                
+                
             }
             if(mp.find(pre-K)!=mp.end()){
                 ans+=mp[pre-K];
