@@ -20,12 +20,12 @@ class Solution{
                 
                 
             }
-            if(mp.find(pre-K)!=mp.end()){
+          //  if(mp.find(pre-K)!=mp.end()){
                 ans+=mp[pre-K];
+            //    mp[pre]++;
+           // }else{
                 mp[pre]++;
-            }else{
-                mp[pre]++;
-            }
+           // }
         }
         return ans;
         
