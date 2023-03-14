@@ -22,10 +22,10 @@ public:
                 ans++;
                 
             }
-            if(mp.find(sum)!=mp.end()){
+          //  if(mp.find(sum)!=mp.end()){
                 
                ans+=mp[sum];
-            }
+          //  }
             mp[sum]+=1;
         }
        
