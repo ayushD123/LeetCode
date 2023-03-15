@@ -8,9 +8,8 @@ public:
         for(char c:words[0]){
             mp[c]++;
         }
-        vector<int> minfreq(26,1e4);
-        
-        for(int i=1;i<words.size();++i){
+       
+         for(int i=1;i<words.size();++i){
             string it=words[i];
             unordered_map<char,int> freq;
             for(auto x:it){
