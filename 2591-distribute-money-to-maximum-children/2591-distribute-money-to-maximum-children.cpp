@@ -16,13 +16,13 @@ public:
                   if(i==ch-1){
                       v[0]+=1; //need to incremnt money of any(here i took 0) person by 1(all the person before i have exatly 8 rupee so to distrubute all money and saving i from getting exaactly 4 we need to make someone getting 9 rupee)
                     
-                  }else{
+//                   }else{
                      
-                      v[i+1]+=1;
-                     }
+//                       v[i+1]+=1;
+                      }
                     
-                }else{
-                    v[i]+=money;
+//                 }else{
+//                     v[i]+=money;
                    
                 }
                  money=0;
