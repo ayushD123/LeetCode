@@ -12,21 +12,20 @@ public:
                 money-=7;
             }else{
                 if(money==3){
-                    
+                    v[i]+=2;
                   if(i==ch-1){
-                      v[i]+=2;
-                      v[0]+=1;
-                      money=0;
+                      v[0]+=1; //need to incremnt money of any(here i took 0) person by 1(all the person before i have exatly 8 rupee so to distrubute all money and saving i from getting exaactly 4 we need to make someone getting 9 rupee)
+                    
                   }else{
-                      v[i]+=2;
+                     
                       v[i+1]+=1;
-                      money=0;
-                  }
+                     }
                     
                 }else{
                     v[i]+=money;
-                    money=0;
+                   
                 }
+                 money=0;
             }
         }
         if(money){
