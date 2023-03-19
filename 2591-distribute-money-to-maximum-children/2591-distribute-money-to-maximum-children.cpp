@@ -12,13 +12,20 @@ public:
                 money-=7;
             }else{
                 if(money==3){
-                    if(i==ch-1){
-                        v[i]+=2;
-                        v[i-1]+=1;
-                    }else{
-                        v[i]+=2;
-                        v[i+1]+=1;
-                    }
+                    
+                  if(i==ch-1){
+                      v[i]+=2;
+                      v[0]+=1;
+                      money=0;
+                  }else{
+                      v[i]+=2;
+                      v[i+1]+=1;
+                      money=0;
+                  }
+                    
+                }else{
+                    v[i]+=money;
+                    money=0;
                 }
             }
         }
