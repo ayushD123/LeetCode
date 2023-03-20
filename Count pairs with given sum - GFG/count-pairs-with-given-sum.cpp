@@ -14,16 +14,13 @@ public:
         int ans=0;
         unordered_map<int,int> mp;
         for(int i=0;i<n;++i){
-            
-            mp[arr[i]]++;
-        }
-         for(int i=0;i<n;++i){
             int x=k-arr[i];
-            if(mp[x]!=0){
-                mp[arr[i]]--;
-               ans+=mp[x];
-               
-            }
+            
+           // if(mp[x]!=0){
+                ans+=mp[x];
+                
+           // }
+            mp[arr[i]]++;
             
         }
         return ans;
