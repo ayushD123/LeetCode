@@ -1,25 +1,24 @@
 class Solution {
 public:
     typedef long long ll;
-    bool canArrange(vector<int>& arr, int k) {
-        unordered_map<int, int> map;
-        int n =arr.size( );
-for( int i =0;i<n;i++){
-    int currentvalue= arr[i];
-int current_remainder = ((currentvalue%k )+ k) % k;
-map[ current_remainder]++;
-}
-
-for(auto it=map.begin( ); it!=map.end ( ); it++){
-if(it->first==0){
-if(map[it->first]%2!=0)
-return false;
-}
-else if(map. find( k-it->first) ==map.end())
-return false;
-else if (map [ it->first] !=map [k-it->first] )
-return false;
+    bool canArrange(vector<int>& A, int K) {
+        unordered_map<int,int> mp;
+        for(auto it:A){
+            int rem=((it%K)+K)%K;
+            mp[rem]++;
         }
-return true;
+        for(auto it:mp){
+            int rem=it.first;
+            
+            int req=K-it.first;
+            if(rem==0){
+                if(mp[rem]%2!=0) return false;
+            }else if(mp.find(req)==mp.end()){
+                return false;
+            } else if(mp[rem]!=mp[req]){
+                return false;
+            }
+        }
+        return true;
     }
 };
