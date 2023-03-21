@@ -1,22 +1,14 @@
 class Solution {
 public:
     long long zeroFilledSubarray(vector<int>& nums) {
-        for(int i=0;i<nums.size();++i){
-            if(nums[i]<0){
-                nums[i]*=-1;
-                
-            }
-        }
-        long long ans=0;
-        long long pre=0;
-        unordered_map<long long,int> mp;
+        long long ans=0,cnt=0;
         for(auto it:nums){
-            pre+=it;
-            if(pre==0){
-                ans++;
+            if(it==0){
+                cnt++;
+            }else{
+                cnt=0;
             }
-            ans+=mp[pre];
-            mp[pre]++;
+            ans+=cnt;
         }
         return ans;
     }
