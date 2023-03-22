@@ -15,7 +15,7 @@ class Solution {
         int cnt1=0;
         int cnt2=0;
         int cnt0=0;
-        mp[{0,0}]=1;
+        mp[{0,0}]=0;
         for(auto it:str){
             if(it=='0'){
                 cnt0++;
@@ -25,6 +25,9 @@ class Solution {
                 cnt2++;
             }
             pair<int,int> p={cnt1-cnt0,cnt2-cnt1};
+            if((cnt1-cnt0)==0 && (cnt2-cnt1)==0){
+                ans++;
+            }
             if(mp.find(p)!=mp.end()){
                 ans+=mp[p];
             }
