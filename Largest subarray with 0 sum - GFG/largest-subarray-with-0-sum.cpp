@@ -19,7 +19,7 @@ class Solution{
         for(int i=0;i<n;++i){
             pre+=arr[i];
             if(pre==0){
-                ans=i+1;
+                ans=max(ans,i+1);
             }
             if(mp.find(pre)!=mp.end()){
                 int j=mp[pre];
