@@ -10,30 +10,24 @@ using namespace std;
 
 class Solution{
     public:
-    int maxLen(vector<int>&A, int n)
+    int maxLen(vector<int>&arr, int n)
     {   
         // Your code here
-        long long sum=0;
-        unordered_map<long long,long long> mp;
+        unordered_map<int,int> mp;
+        int pre=0;
         int ans=0;
         for(int i=0;i<n;++i){
-            sum+=A[i];
-            if(sum==0){
-                ans=max(ans,i+1);
-                continue;
+            pre+=arr[i];
+            if(pre==0){
+                ans=i+1;
             }
-            if(mp.find(sum)!=mp.end()){
-                
-                int j=mp[sum];
-             //  cout<<i<<" "<<j<<endl;
+            if(mp.find(pre)!=mp.end()){
+                int j=mp[pre];
                 ans=max(ans,i-j);
+                
             }else{
-               // if(mp.find(sum)==mp.end())
-                mp[sum]=i;
+                mp[pre]=i;
             }
-        }
-        if(sum==0){
-            return n;
         }
         return ans;
     }
