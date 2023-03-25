@@ -1,11 +1,11 @@
 class DataStream {
 public:
     int val;
-    int kk;
+    int k;
     int cnt;
     DataStream(int value, int k) {
         val=value;
-        kk=k;
+        this->k=k;
         cnt=0;
     }
     
@@ -15,7 +15,7 @@ public:
         }else{
             cnt=0;
         }
-        if(cnt>=kk){
+        if(cnt>=k){
             return true;
         }else{
             return false;
