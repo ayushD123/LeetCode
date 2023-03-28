@@ -16,13 +16,9 @@ public:
                 while(left<n && prod>=k){
                     prod/=nums[left];
                     left++;
-                     if(prod==0){
-                    prod=1;
+                   
                 }
-                }
-                if(prod==0){
-                    prod=1;
-                }
+               
                 if(left<=right && prod<k)
                  cnt+=right-left;
             }
