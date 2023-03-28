@@ -9,10 +9,7 @@ public:
         while(right<n){
             prod*=nums[right];
             right++;
-            if(prod<k){
-                cnt+=right-left;
-                
-            }else{
+           
                 while(left<n && prod>=k){
                     prod/=nums[left];
                     left++;
@@ -22,7 +19,7 @@ public:
                 if(left<=right && prod<k)
                  cnt+=right-left;
             }
-        }
+        
         return cnt;
     }
 };
