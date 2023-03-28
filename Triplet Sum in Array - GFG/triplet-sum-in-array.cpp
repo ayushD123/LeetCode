@@ -10,6 +10,7 @@ class Solution{
     //array A[] which sums up to X.
     bool find3Numbers(int arr[], int n, int X)
     {
+        //Hashing
         // for(int i=0;i<n;++i){
         //      unordered_map<int,int> mp;
         //      int two_sum=X-arr[i];
@@ -23,17 +24,18 @@ class Solution{
         //      }
         // }
         // return 0;
+        //2 pointer
         sort(arr,arr+n);
         for(int i=0;i<n-2;++i){
-            int k=X-arr[i];
+           // int k=X-arr[i];
             int left=i+1;
             int right=n-1;
             while(left<right){
-                int sum=arr[left]+arr[right];
-                if(sum==k){
+                int sum=arr[left]+arr[right]+arr[i];
+                if(sum==X){
                     return 1;
                 }
-                if(sum<k){
+                if(sum<X){
                     left++;
                 }else{
                     right--;
