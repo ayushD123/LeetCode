@@ -16,7 +16,7 @@ public:
                    
                 }
                
-                if(left<=right && prod<k)
+                if(prod<k)
                  cnt+=right-left;
             }
         
