@@ -15,18 +15,19 @@ class Solution{
     bool findTriplets(int arr[], int n)
     { 
         //Your code here
+       // using 2 pointers
         sort(arr,arr+n);
         for(int i=0;i<n-2;++i){
             int x=arr[i];
-            x=x*(-1);
+           // x=x*(-1);
             int left=i+1;
             int right=n-1;
             while(left<right){
-                int sum=arr[left]+arr[right];
-                if(sum==(x)){
+                int sum=arr[left]+arr[right]+x;
+                if(sum==(0)){
                     return 1;
                 }
-                if(sum>x){
+                if(sum>0){
                     right--;
                 }else{
                     left++;
@@ -35,6 +36,20 @@ class Solution{
             
         }
         return 0;
+        
+        //using hashing(TLE)
+        // for(int i=0;i<n-1;i++){
+        //     int x=(-1)*arr[i];
+        //     unordered_set<int> st;
+        //     for(int j=i+1;j<n;++j){
+                
+        //         if(st.find(x-arr[j])!=st.end()){
+        //             return true;
+        //         }
+        //         st.insert(arr[j]);
+        //     }
+        // }
+        // return 0;
     }
 };
 
