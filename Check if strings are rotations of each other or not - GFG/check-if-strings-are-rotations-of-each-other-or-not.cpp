@@ -15,8 +15,8 @@ class Solution
         if (str1.length() != str2.length())
         return false;
  
-    string temp = str1 + str1;
-    return (temp.find(str2) != string::npos);
+    string temp = str2 + str2;
+    return (temp.find(str1) != string::npos);
         
     }
 };
