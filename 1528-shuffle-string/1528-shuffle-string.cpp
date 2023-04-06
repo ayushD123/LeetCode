@@ -1,19 +1,12 @@
 class Solution {
 public:
     string restoreString(string s, vector<int>& indices) {
-        vector<char> c(s.length());
+       string t=s;
         int i=0;
         for(auto it:indices){
-            int ind=it;
-            char k=s[i];
-            c[ind]=k;
+            t[it]=s[i];
             i++;
         }
-        i=0;
-        for(auto it:c){
-            s[i]=it;
-            i++;
-        }
-        return s;
+        return t;
     }
 };
