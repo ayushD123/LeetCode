@@ -9,9 +9,7 @@ class Solution {
 public:
     int maxSubStr(string str){
         //Write your code here
-        if(str.length()%2!=0){
-            return -1;
-        }
+      
         int o=0;
         int z=0;
         int x=0;
