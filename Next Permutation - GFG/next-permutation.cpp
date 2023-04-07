@@ -11,49 +11,28 @@ class Solution{
 public:
     vector<int> nextPermutation(int N, vector<int> arr){
         // code here
-        map<int,int> mp;
-        int a=0;
-        int b=0;
-        int flag=1;
-        for(int i=N-1;i>=0;--i){
-            int x=arr[i];
-            for(auto it:mp){
-                if(it.first>x){ //not distinct
-                     a=i;
-                    b=it.second;
-                    flag=0;
-                    break;
-                }
-            }
-            if(flag==0){
-                break;
-            }
-            mp[x]=i;
-        }
-      //  cout<<a<<" "<<b;
-        vector<int> ans;
-        if(flag==0){
-           int i=0;
-           while(i!=a){
-               ans.push_back(arr[i]);
-               i++;
+        int i;
+       for(i=N-2;i>=0;--i){
+           if(arr[i+1]>arr[i]){
+               break;
            }
-           ans.push_back(arr[b]);
-           vector<int> tmp;
-          
-           for(int j=i;j<N;++j){
-               if(j!=b)
-               tmp.push_back(arr[j]);
+       }
+       if(i<0){
+           sort(arr.begin(),arr.end());
+           return arr;
+       }
+       int j=0;
+        for(j=N-1;j>i;--j){
+           if(arr[j]>arr[i]){
+               break;
            }
-           sort(tmp.begin(),tmp.end());
-           for(auto it:tmp){
-               ans.push_back(it);
-           }
-           return ans;
-        }
-        sort(arr.begin(),arr.end());
+       }
+       swap(arr[i], arr[j]);
+ 
+        // Minimise the suffix part
+        reverse(arr.begin() + i + 1, arr.end());
         return arr;
-       // cout<<ans.size();
+       
         
     }
 };
