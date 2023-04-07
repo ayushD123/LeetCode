@@ -13,40 +13,25 @@ class Solution
 {
     public:
     //Function to check if two strings are isomorphic.
-    bool areIsomorphic(string str1, string str2)
+    bool areIsomorphic(string s, string t)
     {
         
         // Your code here
-        if(str1.length()!=str2.length()){
+        if(s.length()!=t.length()){
             return 0;
         }
-        unordered_map<char,int> mp1;
-        unordered_map<char,int> mp2;
-       int i=0;
-        for(i=0;i<str1.length()-1;++i){
-            mp1[str1[i]]++;
-            mp2[str2[i]]++;
-            if(mp1[str1[i]]!=mp2[str2[i]]){
-                return 0;
-            }
-          if(str1[i]==str1[i+1]){
-              if(str2[i]!=str2[i+1]){
-                  return 0;
-              }
-          }
-          if(str1[i]!=str1[i+1]){
-             // cout<<"hi";
-              if(str2[i]==str2[i+1]){
-                  return 0;
-              }
-          }
+         int arr1[256]={0};
+        
+        int arr2[256]={0};
+      for(int i=0;i<s.length();++i){
+        if(arr1[s[i]]!=arr2[t[i]]){
+            return false;
         }
-         mp1[str1[i]]++;
-            mp2[str2[i]]++;
-            if(mp1[str1[i]]!=mp2[str2[i]]){
-                return 0;
-            }
-    return 1;
+          arr1[s[i]]=i+1;
+           arr2[t[i]]=i+1;
+      }
+       
+  return true;
     }
 };
 
