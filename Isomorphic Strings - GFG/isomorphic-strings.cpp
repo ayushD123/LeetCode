@@ -9,31 +9,36 @@ using namespace std;
 #define MAX_CHARS 256
 
 // } Driver Code Ends
-class Solution
+
+
+
+   class Solution
 {
     public:
     //Function to check if two strings are isomorphic.
-    bool areIsomorphic(string s, string t)
+    bool areIsomorphic(string str1, string str2)
     {
-        
-        // Your code here
-        if(s.length()!=t.length()){
+        if(str1.length()!=str2.length()){
             return 0;
         }
-         int arr1[256]={0};
-        
-        int arr2[256]={0};
-      for(int i=0;i<s.length();++i){
-        if(arr1[s[i]]!=arr2[t[i]]){
-            return false;
-        }
-          arr1[s[i]]=i+1;
-           arr2[t[i]]=i+1;
-      }
+        // Your code here
+       int arr1[255]={};
+       int arr2[255]={};
        
-  return true;
+       for(int i=0;i<str1.length();++i){
+           if(arr1[str1[i]]!=arr2[str2[i]]){
+               return 0;
+           }
+           
+           arr1[str1[i]]=i+1;
+           arr2[str2[i]]=i+1;
+       }
+       return 1;
     }
 };
+   
+
+
 
 //{ Driver Code Starts.
 
