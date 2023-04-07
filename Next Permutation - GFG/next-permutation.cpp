@@ -27,10 +27,11 @@ public:
                break;
            }
        }
+       //cout<<arr[i]<<" "<<arr[j];
        swap(arr[i], arr[j]);
  
         // Minimise the suffix part
-        reverse(arr.begin() + i + 1, arr.end());
+        sort(arr.begin() + i + 1, arr.end());
         return arr;
        
         
