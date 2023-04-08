@@ -1,29 +1,25 @@
 class Solution {
 public:
-    int equalSubstring(string s, string t, int k) {
-        vector<int> v;
-        int n=s.length();
-        for(int i=0;i<s.length();++i){
-            int a=abs(s[i]-t[i]);
-            v.push_back(a);
-        }
-        // for(auto it:v){
-        //     cout<<it<<" ";
-        // }
-      
+    int equalSubstring(string s, string t, int maxCost) {
         int left=0;
         int right=0;
-        int ans=0;
         int sum=0;
-        while(left <n && right<n){
-           while(right<n && (v[right]+sum)<=k){
-               sum+=v[right];
-               right++;
-               
-           }
-            ans=max(ans,right-left);
-            sum-=v[left];
-            left++;
+        int n=s.length();
+        int ans=0;
+        while(right<s.length()){
+            int a=s[right]-'a';
+            int b=t[right]-'a';
+            int sx=abs(a-b);
+            sum+=sx;
+            while(left<=right && sum>maxCost){
+            int x=(s[left]-'a');
+            int y=t[left]-'a';
+            int z=abs(x-y);
+            sum-=z;
+                left++;
+            }
+            ans=max(ans,right-left+1);
+            right++;
         }
         return ans;
     }
