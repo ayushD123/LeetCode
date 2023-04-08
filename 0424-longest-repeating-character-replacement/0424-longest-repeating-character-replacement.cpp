@@ -1,45 +1,27 @@
 class Solution {
 public:
     int characterReplacement(string s, int k) {
-        int i=0,j=1;
-        int ans=1;
-        if(s.length()<3){
-            return s.length();
-        }
-       
-    
-        vector<int> mp(26,0);
-        mp[s[0]-'A']++;
-        mp[s[1]-'A']++;
-        while(j<s.length() && i<=j){
-            int t=(j-i+1);
-           // cout<<j<<" "<<t<<" "<<*max_element(mp.begin(),mp.end())<<endl;
-            if(k==0){
-                if((t==(*max_element(mp.begin(),mp.end())))){
-               ans=max(ans,t);
-               j++;
-                if((j)<s.length())
-               mp[s[j]-'A']++;
-           }else{
-                mp[s[i]-'A']--;
-               i++;
-           }}else{
-                if(t-(*max_element(mp.begin(),mp.end()))<=k){
-                j++;
-           //   cout<<t<<" "<<*max_element(mp.begin(),mp.end())<<endl;
-                ans=max(ans,t);
-                if((j)<s.length())
-               mp[s[j]-'A']++;
-            }else{
-                mp[s[i]-'A']--;
-                i++;
+        unordered_map<char,int> mp;
+        int right=0;
+        int left=0;
+        int maxfreq=0;
+        int maxlen=0;
+        int n=s.length();
+        while(right<n){
+            mp[s[right]]++;
+            maxfreq=max(maxfreq,mp[s[right]]);
+            if(((right-left+1)-maxfreq)<=k){
+                maxlen=max(maxlen,right-left+1);
+                right++;
                 
+            }else{
+                while((right-left+1)-maxfreq>k){
+                    mp[s[left]]--;
+                    left++;
+                }
+                right++;
             }
-           }
-           
-            
         }
-        return ans;
-        
+        return maxlen;
     }
 };
