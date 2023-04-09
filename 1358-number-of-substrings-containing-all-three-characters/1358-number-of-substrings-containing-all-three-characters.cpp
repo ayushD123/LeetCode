@@ -10,7 +10,7 @@ public:
             char c=s[right];
             mp[c]++;
             right++;
-            while(left<n && mp.size()>=3){
+            while(left<n && mp.size()==3){
                 ans+=n-right+1;
                 char b=s[left];
                 mp[b]--;
