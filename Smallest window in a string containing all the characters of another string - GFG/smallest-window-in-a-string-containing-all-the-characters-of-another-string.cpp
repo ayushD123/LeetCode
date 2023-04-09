@@ -12,7 +12,8 @@ class Solution
     string smallestWindow (string s, string t)
     {
         // Your code here
-        int m[256] = { 0 };
+       // int m[256] = { 0 };
+       unordered_map<char,int> m;
  
     // Answer
     int ans = INT_MAX; // length of ans
@@ -21,10 +22,10 @@ class Solution
  
     // creating map
     for (int i = 0; i < t.length(); i++) {
-        if (m[t[i]] == 0)
-            count++;
+       
         m[t[i]]++;
     }
+    count=m.size();
  
     // References of Window
     int i = 0;
@@ -34,8 +35,11 @@ class Solution
     while (j < s.length()) {
         // Calculations
         m[s[j]]--;
-        if (m[s[j]] == 0)
+        if (m[s[j]] == 0){
             count--;
+            //cout<<"hi-:"<<s[j]<<endl;
+        }
+            
  
         // Condition matching
         if (count == 0) {
