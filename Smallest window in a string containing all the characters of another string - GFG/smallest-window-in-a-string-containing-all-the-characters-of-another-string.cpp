@@ -9,64 +9,45 @@ class Solution
     public:
     //Function to find the smallest window in the string s consisting
     //of all the characters of string p.
-    string smallestWindow (string s, string t)
+    string smallestWindow (string s, string p)
     {
         // Your code here
-       // int m[256] = { 0 };
-       unordered_map<char,int> m;
- 
-    // Answer
-    int ans = INT_MAX; // length of ans
-    int start = 0; // starting index of ans
-    int count = 0;
- 
-    // creating map
-    for (int i = 0; i < t.length(); i++) {
-       
-        m[t[i]]++;
-    }
-    count=m.size();
- 
-    // References of Window
-    int i = 0;
-    int j = 0;
- 
-    // Traversing the window
-    while (j < s.length()) {
-        // Calculations
-        m[s[j]]--;
-        if (m[s[j]] == 0){
-            count--;
-            //cout<<"hi-:"<<s[j]<<endl;
+        unordered_map<char,int> mp;
+        for(auto it:p){
+            mp[it]++;
         }
-            
- 
-        // Condition matching
-        if (count == 0) {
-            while (count == 0) {
-                // Sorting ans
-                if (ans > j - i + 1) {
-                    ans = min(ans, j - i + 1);
-                    start = i;
-                }
-                // Sliding I
-                // Calculation for removing I
- 
-                m[s[i]]++;
-                if (m[s[i]] > 0)
-                    count++;
- 
-                i++;
+        int count=mp.size();
+        int ans=1e9+7;
+        int left=0;
+        int right=0;
+        int start=0;
+        while(right<s.length()){
+            mp[s[right]]--;
+            if(mp[s[right]]==0){
+                count--;
             }
+            if(count==0){
+               
+                while(left<=right && count==0){
+                    if((right-left+1)<ans){
+                       ans=min(ans,right-left+1);
+                       start=left;
+                    }
+                   
+                   mp[s[left]]++;
+                   if(mp[s[left]]>0){
+                       count++;
+                   }
+                   left++;
+                }
+            }
+            right++;
         }
-        j++;
-    }
- 
-    if (ans != INT_MAX)
-        return s.substr(start, ans);
-    else
-        return "-1";
+        if(ans==(1e9+7)){
+            return "-1";
+        }
         
+        return s.substr(start,ans);
     }
 };
 
