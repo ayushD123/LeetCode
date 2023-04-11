@@ -9,13 +9,13 @@ public:
                 if(nums[mid]==nums[mid+1]){
                     low=mid+1;;
                 }else{
-                    high=mid;
+                    high=mid; //because mid could be possible ans hence cant exclude by mid-1
                 }
             }else{
                 if(nums[mid]==nums[mid-1]){
                     low=mid+1;
                 }else{
-                    high=mid-1;
+                    high=mid;
                 }
             }
         }
