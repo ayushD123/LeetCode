@@ -5,7 +5,7 @@ public:
         int j=0;
         for(auto it:pushed){
             st.push(it);
-            while(!st.empty() && st.top()==popped[j]){
+            while(!st.empty() && st.top()==popped[j] && j<popped.size()){
                 j++;
                 st.pop();
             }
