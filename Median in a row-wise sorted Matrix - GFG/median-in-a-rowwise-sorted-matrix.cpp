@@ -10,16 +10,28 @@ using namespace std;
 
 class Solution{   
 public:
-    int median(vector<vector<int>> &matrix, int R, int C){
-        // code here   
-        vector<int> tmp;
-        for(int i=0;i<R;++i){
-            for(int j=0;j<C;++j){
-                tmp.push_back(matrix[i][j]);
+    int median(vector<vector<int>> &matrix, int r, int c){
+        // code here  
+        
+        int low=1;
+        int high=2000;
+        int total=r*c;
+        int ans=0;
+        while(low<=high){
+            int mid=(low+high)/2;
+            int cnt=0;
+            for(int i=0;i<r;++i){
+                int ub=upper_bound(matrix[i].begin(),matrix[i].end(),mid)-matrix[i].begin();
+                cnt+=ub;
+            }
+            if(cnt>(total/2)){
+                ans=mid;
+                high=mid-1;
+            }else{
+                low=mid+1;
             }
         }
-        sort(tmp.begin(),tmp.end());
-        return tmp[tmp.size()/2];
+        return ans;
     }
 };
 
