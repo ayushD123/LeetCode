@@ -1,9 +1,9 @@
 class Solution {
 public:
     int minCapability(vector<int>& nums, int k) {
-        int low=*min_element(nums.begin(),nums.end());
-         int high=*max_element(nums.begin(),nums.end());
-        int ans=INT_MAX;
+        int low=1;
+         int high=1e9;
+        int ans=1e9+7;
         while(low<=high){
             int mid=(low+high)/2;
             int cnt=0;
