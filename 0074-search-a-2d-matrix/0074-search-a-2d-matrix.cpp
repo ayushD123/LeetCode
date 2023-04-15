@@ -7,8 +7,7 @@ public:
         while(low<=high){
             int mid=(low+high)/2;
             if(matrix[mid][0]==target){
-                ans=mid;
-                break;
+                return 1;
             }
             if(matrix[mid][0]>=target){
                 ans=mid-1;
