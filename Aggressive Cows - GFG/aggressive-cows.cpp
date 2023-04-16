@@ -13,7 +13,7 @@ public:
     int solve(int n, int k, vector<int> &stalls) {
         sort(stalls.begin(),stalls.end());
         int low=1;
-        int high=stalls[n-1]-1;
+        int high=stalls[n-1]-2;
         int ans=-1;
         while(low<=high){
             int mid=(low+high)/2;
