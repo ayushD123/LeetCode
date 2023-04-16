@@ -13,7 +13,7 @@ public:
     int solve(int n, int k, vector<int> &stalls) {
         sort(stalls.begin(),stalls.end());
         int low=1;
-        int high=stalls[n-1]-1;
+        int high=stalls[n-1]-stalls[0];
         int ans=-1;
         while(low<=high){
             int mid=(low+high)/2;
@@ -30,7 +30,7 @@ public:
           //  cout<<mid<<endl;
             if(x==0){
              //   cout<<mid<<endl;
-                ans=max(ans,mid);
+                ans=mid;
                 low=mid+1;
             }else{
                 high=mid-1;
