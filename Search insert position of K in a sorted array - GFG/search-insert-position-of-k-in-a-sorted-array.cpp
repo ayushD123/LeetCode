@@ -11,8 +11,7 @@ class Solution{
     {
         // code here
         int ind=lower_bound(Arr.begin(),Arr.end(),k)-Arr.begin();
-        if(ind>=N) return ind;
-        if(Arr[ind]==k) return ind;
+        
         if(Arr[0]>=k) return 0;
         return ind;
     }
