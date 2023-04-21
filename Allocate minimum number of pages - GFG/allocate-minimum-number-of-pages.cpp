@@ -17,7 +17,7 @@ class Solution
         //code here
         if(M>N) return -1;
         int low=1;
-        int high=accumulate(A, A+N,(long) 0);
+        int high=accumulate(A, A+N, 0);
         int ans=-1;
         while(low<=high){
             int mid=(low+high)/2;
