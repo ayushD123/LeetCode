@@ -16,17 +16,19 @@ public:
         sort(tmp.begin(),tmp.end());
         vector<long long > pre(n,0);
         pre[0]=0;
-        for(int i=1;i<n;++i){
-            pre[i]=pre[i-1]+tmp[i-1];
-        }
-        
         mp[tmp[0]]=0;
         for(int i=1;i<n;++i){
+            pre[i]=pre[i-1]+tmp[i-1];
             if(tmp[i]==tmp[i-1]){
                 continue;
             }
             mp[tmp[i]]=pre[i];
         }
+        
+        
+        // for(int i=1;i<n;++i){
+            
+        // }
         for(auto it:arr){
             ans.push_back(mp[it]);
         }
