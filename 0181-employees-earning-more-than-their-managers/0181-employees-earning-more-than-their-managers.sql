@@ -1,1 +1,1 @@
-select a.name as Employee from employee a join employee b on b.id=a.managerid and a.salary>b.salary;
+select b.name as Employee from employee a join employee b on a.id=b.managerid and a.salary<b.salary;
