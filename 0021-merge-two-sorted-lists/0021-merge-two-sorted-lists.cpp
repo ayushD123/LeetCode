@@ -32,17 +32,11 @@ public:
                 list2=list2->next;
             }
         }
-        while(list1!=NULL){
-            ListNode* k=new ListNode(list1->val);
-                tmp->next=k;
-                tmp=k;
-                list1=list1->next;
+        if(list1!=NULL){
+            tmp->next=list1;
         }
-        while(list2!=NULL){
-            ListNode* k=new ListNode(list2->val);
-                tmp->next=k;
-                tmp=k;
-                list2=list2->next;
+         if(list2!=NULL){
+            tmp->next=list2;
         }
         return ans->next;
     }
