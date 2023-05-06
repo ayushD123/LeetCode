@@ -97,9 +97,9 @@ void deleteAlt(struct Node *head){
     Node *temp=head;
     while(temp!=NULL){
         if(temp->next!=NULL){
-             Node *nxt=temp->next->next;
-             temp->next=nxt;
-             temp=nxt;
+             Node *nxt=temp->next;
+             temp->next=nxt->next;
+             temp=nxt->next;
         }else{
             break;
         }
