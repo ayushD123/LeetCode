@@ -12,16 +12,25 @@ public:
         
         sort(nums.begin(),nums.end());
         int ans=0;
-        while(left<=right){
-            if(nums[left]+nums[right]<=target){
-                
-                ans+=pow2[right-left]%mod;
-                ans=ans%mod;
-                left++;
+        for(int i=0;i<nums.size();++i){
+            left=i;
+            right=nums.size()-1;
+            int t=-1;
+            while(left<=right){
+           int mid=(left+right)/2;
+            if(nums[i]+nums[mid]<=target){
+                left=mid+1;
+                t=mid;
             }else{
-                right--;
+                right=mid-1;
             }
+                
         }
+            if(t<0) break;
+                ans+=pow2[t-i]%mod;
+            ans=ans%mod;
+        }
+        
         return ans;
     }
 };
