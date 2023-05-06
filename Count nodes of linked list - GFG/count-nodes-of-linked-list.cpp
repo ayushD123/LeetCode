@@ -34,9 +34,9 @@ class Solution
         if(head==NULL){
             return 0;
         }
-        int cnt=1;
+        int cnt=0;
         
-        while(head->next!=NULL){
+        while(head!=NULL){
             cnt++;
             head=head->next;
         }
