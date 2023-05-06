@@ -101,7 +101,7 @@ void deleteAlt(struct Node *head){
              temp->next=nxt;
              temp=nxt;
         }else{
-            temp=temp->next;
+            break;
         }
     }
 }
