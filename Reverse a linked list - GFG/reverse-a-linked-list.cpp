@@ -37,22 +37,15 @@ class Solution
     {
         // code here
         // return head of reversed list
-        stack<struct Node*> st;
-        Node* tmp=head;
-        while(tmp!=NULL){
-            st.push(tmp);
-            tmp=tmp->next;
+        Node* curr=head;
+        Node* prev=NULL;
+        while(curr!=NULL){
+            Node* nxt=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=nxt;
         }
-        Node* ans=new Node(0);
-        tmp=ans;
-        
-        while(!st.empty()){
-            tmp->next=st.top();
-            tmp=tmp->next;
-            st.pop();
-        }
-        tmp->next=NULL;
-        return ans->next;
+        return prev;
     }
     
 };
