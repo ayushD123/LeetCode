@@ -95,15 +95,13 @@ struct Node
 void deleteAlt(struct Node *head){
     // Code here
     Node *temp=head;
-    while(temp!=NULL){
-        if(temp->next!=NULL){
+    while(temp!=NULL && temp->next!=NULL){
+        
              Node *nxt=temp->next->next;
              Node* To_Be_Del=temp->next;
              delete(To_Be_Del);
              temp->next=nxt;
              temp=nxt;
-        }else{
-            break;
-        }
+        
     }
 }
