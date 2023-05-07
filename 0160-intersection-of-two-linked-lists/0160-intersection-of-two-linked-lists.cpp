@@ -11,26 +11,17 @@ public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         ListNode* currA=headA;
         ListNode* currB=headB;
-        int na=0;
-        int nb=0;
-        while(currA!=NULL){
-            na++;
-            currA=currA->next;
+        while(currA!=currB){
+            if(currA==NULL){
+                currA=headB;
+            }else  if(currB==NULL){
+                    currB=headA;
+                }
+             else {
+                currA=currA->next;
+                currB=currB->next;
+            }
         }
-         while(currB!=NULL){
-            nb++;
-            currB=currB->next;
-        }
-        ListNode* lar=na>nb?headA:headB;
-        ListNode* shor=(lar==headA)?headB:headA;
-        int c=abs(na-nb);
-        for(int i=0;i<c;++i){
-            lar=lar->next;
-        }
-        while(shor!=lar){
-            lar=lar->next;
-            shor=shor->next;
-        }
-        return shor;
+        return currA;
     }
 };
