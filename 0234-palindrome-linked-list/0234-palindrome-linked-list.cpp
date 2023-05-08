@@ -11,14 +11,28 @@
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-      string s="";
-        ListNode* curr=head;
-        while(curr!=NULL){
-            s+=curr->val;
-            curr=curr->next;
+      //finding middle of list
+        ListNode* slow=head;
+        ListNode* fast=head;
+        while(fast->next!=NULL && fast->next->next!=NULL){
+            slow=slow->next;
+            fast=fast->next->next;
         }
-        string k=s;
-        reverse(k.begin(),k.end());
-        return k==s;
+        ListNode* curr=slow->next;
+        ListNode*prev=NULL;
+        
+        while(curr!=NULL){
+            ListNode* nxt=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=nxt;
+        }
+        slow=prev;
+        while(slow!=NULL){
+            if(head->val!=slow->val) return false;
+            head=head->next;
+            slow=slow->next;
+        }
+        return 1;
     }
 };
