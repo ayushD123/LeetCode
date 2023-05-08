@@ -18,6 +18,7 @@ public:
             slow=slow->next;
             fast=fast->next->next;
         }
+        //reversing nxt half of LL(after middle)
         ListNode* curr=slow->next;
         ListNode*prev=NULL;
         
@@ -28,6 +29,7 @@ public:
             curr=nxt;
         }
         slow=prev;
+        //comparing start of LL with reversed part
         while(slow!=NULL){
             if(head->val!=slow->val) return false;
             head=head->next;
