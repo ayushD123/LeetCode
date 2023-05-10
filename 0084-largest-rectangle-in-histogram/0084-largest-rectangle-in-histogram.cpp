@@ -31,10 +31,10 @@ public:
              int ans=0;
         for(int i=0;i<n;++i){
             
-                 if(l[i]==(-1)){
+                 if(l[i]==(-1)){ //if element has no nxt greater at left
                 l[i]=-1;
             }
-             if(r[i]==(-1)){
+             if(r[i]==(-1)){ //if element has no nxt greater at right
                 r[i]=n;
             }
             
