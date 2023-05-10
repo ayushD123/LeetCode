@@ -5,7 +5,7 @@ public:
         stack<int> str;
         stack<int> stl;
         int n=heights.size();
-        int mn=*min_element(heights.begin(),heights.end());
+       // int mn=*min_element(heights.begin(),heights.end());
         vector<int> l(n,-1);
         vector<int> r(n,-1);
         for(int i=n-1;i>=0;i--){
@@ -28,7 +28,7 @@ public:
             stl.push(i);
             
         }
-             int ans=n*mn;
+             int ans=0;
         for(int i=0;i<n;++i){
             
                  if(l[i]==(-1)){
