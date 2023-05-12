@@ -19,12 +19,12 @@ class Solution {
                 tmp+=c;
                 st.push(tmp);
             }else{
-                string a='('+st.top();
+                string a=st.top();
                 st.pop();
-                a+=c;
-                a+=st.top()+')';
+                string b=st.top();
                 st.pop();
-                st.push(a);
+                
+                st.push('('+a+c+b+')');
             }
         }
         return st.top();
