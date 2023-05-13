@@ -33,7 +33,7 @@ public:
             // v[i]=(right[i]-arr[i]-1)+(arr[i]-left[i]-1);
             int leftn=i-left[i]-1;
             int rightn=right[i]-i-1;
-            cout<<leftn<<" "<<rightn<<endl;
+            //cout<<leftn<<" "<<rightn<<endl;
             long long cal=(long long)arr[i]%mod*(leftn%mod+1)%mod*(rightn%mod+1)%mod;
             ans+=cal;
             ans=ans%mod;
