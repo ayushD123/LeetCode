@@ -6,7 +6,7 @@ public:
         int n=heights.size();
      
         vector<int> l(n,-1);
-        vector<int> r(n,-1);
+        vector<int> r(n,n);
         for(int i=n-1;i>=0;i--){
             while(!st.empty() && heights[st.top()]>=heights[i]){
                 st.pop();
@@ -31,12 +31,12 @@ public:
              int ans=0;
         for(int i=0;i<n;++i){
             
-                 if(l[i]==(-1)){ //if element has no nxt greater at left
-                l[i]=-1;
-            }
-             if(r[i]==(-1)){ //if element has no nxt greater at right
-                r[i]=n;
-            }
+            //      if(l[i]==(-1)){ //if element has no nxt greater at left
+            //     l[i]=-1;
+            // }
+            //  if(r[i]==(-1)){ //if element has no nxt greater at right
+            //     r[i]=n;
+            // }
             
             int h=heights[i]*(r[i]-l[i]-1);
             ans=max(ans,h);
