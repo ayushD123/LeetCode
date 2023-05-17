@@ -32,9 +32,9 @@ class Solution {
         }
         for(int i=0;i<V;++i){
             if(vis[i]==0){
-            //    ans++;
-                dfs(i,vis,adjL);
                 ans++;
+                dfs(i,vis,adjL);
+               // ans++;
             }
         }
         return ans;
