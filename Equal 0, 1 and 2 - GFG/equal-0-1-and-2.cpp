@@ -28,9 +28,9 @@ class Solution {
             if((cnt0-cnt1)==0 && (cnt2-cnt1)==0){
                 ans++;
             }
-            if(mp.find(p)!=mp.end()){
+          //  if(mp.find(p)!=mp.end()){
                 ans+=mp[p];
-            }
+            //}
             mp[p]++;
         }
         return ans;
