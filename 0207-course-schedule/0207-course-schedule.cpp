@@ -6,7 +6,7 @@ public:
         int ans=0;
 	      vector<int> adj[N];
 	      for(auto it:pre){
-	          adj[it[0]].push_back(it[1]);
+	          adj[it[1]].push_back(it[0]);
 	      }
 	   vector<int> inDeg(V,0);
 	  for(int i=0;i<V;++i){
