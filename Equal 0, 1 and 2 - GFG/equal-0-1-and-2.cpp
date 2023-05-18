@@ -24,8 +24,8 @@ class Solution {
             }else{
                 cnt2++;
             }
-            pair<int,int> p={cnt0-cnt1,cnt2-cnt0};
-            if((cnt0-cnt1)==0 && (cnt2-cnt0)==0){
+            pair<int,int> p={cnt0-cnt1,cnt2-cnt1};
+            if((cnt0-cnt1)==0 && (cnt2-cnt1)==0){
                 ans++;
             }
             if(mp.find(p)!=mp.end()){
