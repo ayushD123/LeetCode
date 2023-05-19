@@ -10,7 +10,7 @@ public:
             string pre=target.substr(0,i);
             string suf=target.substr(i,target.size());
             if(suf==pre){
-                cnt+=mp[suf]*(mp[pre]-1);
+                cnt+=(mp[suf]-1)*(mp[pre]);
             }else{
                 cnt+=mp[suf]*mp[pre];
             }
