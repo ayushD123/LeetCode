@@ -23,8 +23,9 @@ class Solution{
                 ans=max(ans,i-j);
             }
             
-              if(mp.find(pre)==mp.end())
-                mp[pre]=i;
+             if(mp.find(pre)==mp.end())
+             mp[pre]=i;
+                
             
         }
         return ans;
