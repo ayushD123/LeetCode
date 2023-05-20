@@ -10,9 +10,10 @@ public:
                 return 1;
             }
             if(matrix[mid][0]>=target){
-                ans=mid-1;
+               // ans=mid-1;
                 high=mid-1;
             }else{
+                ans=mid;
                 low=mid+1;
             }
         }
