@@ -17,7 +17,7 @@ public:
             }
         }
         
-        if(ans<0) ans=0;
+        if(ans<0) return 0;
         if(binary_search(matrix[ans].begin(),matrix[ans].end(),target)){
             return true;
         }else{
