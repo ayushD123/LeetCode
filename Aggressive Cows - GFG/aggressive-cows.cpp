@@ -17,18 +17,18 @@ public:
         int ans=-1;
         while(low<=high){
             int mid=(low+high)/2;
-            int x=k-1;
+            int x=1;
             int i=0;
             int j=0;
-            while(j<n && x>0){
+            while(j<n && x<k){
                 if((stalls[j]-stalls[i])>=mid){
-                    x--;
+                    x++;
                     i=j;
                 }
                 j++;
             }
           //  cout<<mid<<endl;
-            if(x==0){
+            if(x==k){
              //   cout<<mid<<endl;
                 ans=mid;
                 low=mid+1;
