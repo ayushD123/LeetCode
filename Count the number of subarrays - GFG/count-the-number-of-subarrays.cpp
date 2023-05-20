@@ -15,14 +15,14 @@ long long atmost(vector<int> &v,long long x,int n){
     long long cnt=0;
     int right=0;
   
-    while(left<n){
-        while(right<n && (sum+v[right])<=x){
-            sum+=v[right];
-            right++;
-            cnt+=right-left;
+    while(right<n){
+        sum+=v[right];
+        while(sum>x && left<n){
+            sum-=v[left];
+            left++;
         }
-        sum-=v[left];
-        left++;
+        cnt+=right-left+1;
+        right++;
     }
     return cnt;
 }
