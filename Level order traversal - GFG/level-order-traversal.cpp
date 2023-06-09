@@ -50,7 +50,7 @@ class Solution
     q.push(root);
     while(!q.empty()){
         int n=q.size();
-        while(n--){
+    //    while(n--){
             Node* tmp=q.front();
         
         q.pop();
@@ -61,7 +61,7 @@ class Solution
             q.push(tmp->right);
         }
         ans.push_back(tmp->data);
-        }
+    //    }
         
     }
     return ans;
