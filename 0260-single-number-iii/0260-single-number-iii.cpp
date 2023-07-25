@@ -19,7 +19,7 @@ public:
         }
         temp=0;
         for(auto it:nums){
-            if(it&(1<<pos)){
+            if((it&(1<<pos))==0){
                 temp^=it;
             }
         }
