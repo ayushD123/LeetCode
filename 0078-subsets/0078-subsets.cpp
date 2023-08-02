@@ -1,23 +1,19 @@
 class Solution {
 public:
-    vector<int> subst(int num,vector<int> &v,int n){
-        vector<int> t;
-        int j=0;
-        while(num){
-            if(num & 1){
-                t.push_back(v[j]);
-            }
-            j++;
-            num=num>>1;
+    void solve(vector<vector<int>> &ans,vector<int> op,int index,vector<int> nums){
+        if(index>=nums.size()){
+            ans.push_back(op);
+            return;
         }
-        return t;
+        op.push_back(nums[index]);
+        solve(ans,op,index+1,nums);
+        op.pop_back();
+       solve(ans,op,index+1,nums);
     }
     vector<vector<int>> subsets(vector<int>& nums) {
-        int n=nums.size();
         vector<vector<int>> ans;
-        for(int i=0;i<(1<<n);++i){
-            ans.push_back(subst(i,nums,n));
-        }
+        vector<int> op;
+        solve(ans,op,0,nums);
         return ans;
     }
 };
