@@ -6,12 +6,18 @@ public:
             
         auto& destinations = mp[city];
         for (int i = 0; i < destinations.size(); ++i) {
+            
             string dest = destinations[i];
-            ans.push_back(dest);
-            destinations.erase(destinations.begin() + i);
+            if(dest!="-1"){
+                 ans.push_back(dest);
+            destinations[i]="-1";
+          //  destinations.erase(destinations.begin() + i);
             if (dfs(mp, dest, ans, n)) return true;
             ans.pop_back();
-            destinations.insert(destinations.begin() + i, dest); // Insert back at the correct position
+            destinations[i]=dest;
+           // destinations.insert(destinations.begin() + i, dest); // Insert back at the correct position
+            }
+           
         }
         return false;
     }
