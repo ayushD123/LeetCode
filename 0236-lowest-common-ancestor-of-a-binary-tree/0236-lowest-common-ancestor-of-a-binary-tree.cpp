@@ -14,7 +14,7 @@ public:
         while (diff--) {
             p = par[p];
         }
-        while (p != q) {
+        while (p->val != q->val) {
             p = par[p];
             q = par[q];
         }
