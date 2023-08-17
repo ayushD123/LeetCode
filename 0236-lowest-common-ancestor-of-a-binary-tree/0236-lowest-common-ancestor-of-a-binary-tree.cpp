@@ -24,7 +24,7 @@ public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         unordered_map<TreeNode*, int> depth;
         unordered_map<TreeNode*, TreeNode*> par;
-        depth[NULL] = -1; // Set depth of NULL to -1
+        depth[NULL] = 0; // Set depth of NULL to -1
         dfs(root, NULL, depth, par);
         return lca(p, q, depth, par);
     }
