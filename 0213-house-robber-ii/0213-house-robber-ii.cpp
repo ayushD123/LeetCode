@@ -2,7 +2,7 @@ class Solution {
 public:
     int space(vector<int> &nums){
         int n = nums.size();
-        if (n == 0) return 0; // Handle empty vector
+     //   if (n == 0) return 0; // Handle empty vector
         if (n == 1) return nums[0];
         
         int a = nums[0];
