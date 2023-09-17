@@ -24,10 +24,14 @@ public:
         
      //   if (n == 0) return 0;
         if (n == 1) return nums[0];
-        
-        vector<int> arr1(nums.begin() + 1, nums.end());
-        vector<int> arr2(nums.begin(), nums.end() - 1);
-        
+         vector<int> arr1;
+         vector<int> arr2;
+       for(int i=1;i<nums.size();++i){
+            arr1.push_back(nums[i]);
+        }
+          for(int i=0;i<nums.size()-1;++i){
+            arr2.push_back(nums[i]);
+        }
         int ans1 = space(arr1);
         int ans2 = space(arr2);
         
