@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int solve(int m,int n,  vector<vector<int>> &dp){
+        if(m==0 && n==0){
+            return 1;
+        }
+        if(m<0 || n<0) return 0;
+        if(dp[m][n]!=(-1)) return dp[m][n];
+        int left=solve(m-1,n,dp);
+        int right=solve(m,n-1,dp);
+        return dp[m][n]=left+right;
+    }
+    int uniquePaths(int m, int n) {
+        vector<vector<int>> dp;
+        for(int i=0;i<m;++i){
+            vector<int> t(n,-1);
+            dp.push_back(t);
+        }
+        return solve(m-1,n-1,dp); // m and n given as 1 based
+        
+    }
+};
