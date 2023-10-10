@@ -20,13 +20,13 @@ public:
     //tab
     int tab(int m,int n,  vector<vector<int>> &dp){
         dp[0][0]=1; //write base case inside dp array
-        for(int i=0;i<m;++i){
+        for(int i=0;i<m;++i){ //write all possible states through for loops for each i=0 there are 0->n similarly for i=1,2...m
             for(int j=0;j<n;++j){
                 if(i==0 && j==0) continue;
                 int left=0;
                 int top=0;
                 if(i>0){
-                     left=dp[i-1][j];
+                     left=dp[i-1][j]; //just copied the recurrence and used dp instead of function name
                 }
                if(j>0){
                 top=dp[i][j-1];
